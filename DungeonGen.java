@@ -1,8 +1,8 @@
 // Help Sauron create dungeons to store captured hobbits
 /* Algorithm
  * 1) Create 10 rows in 2D arraylist with 10 random rooms for each row
- * 2) Go through each row again using the following subalgorithm
- *   + Starting on the 2nd room, if my current room has walls on all sides, change room to my left to an opening
+ * 2) Go through each row again and check the rooms to make sure each room is connected to another
+ *   + Starting on the 2nd room of the 2nd row, if current room has an opening on the top and left side, change current room to an opening
  * 3) ...
  */
 
@@ -42,6 +42,21 @@ public class DungeonGen {
     }
   }
 
+  public void checkRows() {
+    for (int i = 1; i < 10; i++) {
+      for (int j = 1; j < 9; j++) {
+        String topRoom = dungeon.get(i-1).get(j).toString();
+        String leftRoom = dungeon.get(i).get(j-1).toString();
+        String rightRoom = dungeon.get(i).get(j+1).toString();
+        if (topRoom.equals("\u2B1C") && leftRoom.equals("\u2B1C") || topRoom.equals("\u2B1C") && rightRoom.equals("\u2B1C") || leftRoom.equals("\u2B1C") && rightRoom.equals("\u2B1C")) {
+          Room room = new Room("opening");
+          dungeon.get(i).set(j, room);
+        }
+      }
+      //System.out.println();
+    }
+  }
+
   public void printDungeon() {
     for (ArrayList<Room> row : dungeon) {
       for (Room room : row) {
@@ -56,6 +71,7 @@ public class DungeonGen {
 
     // Generate dungeon
     dungeon.createRows();
+    dungeon.checkRows();
 
     dungeon.printDungeon(); 
   }
