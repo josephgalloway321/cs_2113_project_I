@@ -145,5 +145,6 @@ public class DungeonGen {
         System.out.println("Please enter a valid choice");
       }
     }
+    scnr.close();
   }
 }
