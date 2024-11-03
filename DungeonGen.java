@@ -8,6 +8,7 @@
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class DungeonGen {
   private ArrayList<ArrayList<Room>> dungeon;
@@ -96,6 +97,16 @@ public class DungeonGen {
     }
   }
 
+  public static void generateDungeon(DungeonGen dungeon) {
+    dungeon.createWallRow();
+    dungeon.createRandomRoomRows();
+    dungeon.createWallRow();
+    dungeon.changeFirstAndLastColumnsToWalls();
+    dungeon.changeLastColumnToWallWithOpenings();
+    dungeon.checkRowsForIsolatedRooms();
+    dungeon.printDungeon();
+  }
+
   public void printDungeon() {
     for (ArrayList<Room> row : dungeon) {
       for (Room room : row) {
@@ -106,16 +117,33 @@ public class DungeonGen {
   }
 
   public static void main(String[] args) {
-    DungeonGen dungeon = new DungeonGen();
+    Scanner scnr = new Scanner(System.in);
+    DungeonGen dungeon;
+    int userChoice = -1;
 
-    // Generate dungeon
-    dungeon.createWallRow();
-    dungeon.createRandomRoomRows();
-    dungeon.createWallRow();
-    dungeon.changeFirstAndLastColumnsToWalls();
-    dungeon.changeLastColumnToWallWithOpenings();
-    dungeon.checkRowsForIsolatedRooms();
-    dungeon.printDungeon();
+    while (userChoice != 2) {
+      // Decision from user
+      System.out.print("Enter 0 to generate, 1 to load, or 2 to exit: ");
+      userChoice = scnr.nextInt();
+      System.out.println();
 
+      if (userChoice == 0) {
+        System.out.println("Generating...\n");
+        dungeon = new DungeonGen();
+        generateDungeon(dungeon);
+        // TODO: Write dungeon to txt file
+        // TODO: Increment how many times generate was called
+        dungeon = null;
+      }
+      else if (userChoice == 1) {
+        System.out.println("Loading...\n");
+      }
+      else if (userChoice == 2) {
+        System.out.println("Exiting program...");
+      }
+      else {
+        System.out.println("Please enter a valid choice");
+      }
+    }
   }
 }
