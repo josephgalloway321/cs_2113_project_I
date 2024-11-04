@@ -8,8 +8,11 @@
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 
 public class DungeonGen {
@@ -74,7 +77,6 @@ public class DungeonGen {
       }
     }
     if (!isOpeningExist) {
-      System.out.println("Merp!");
       dungeon.get(4).set(7, openRoom);
       dungeon.get(4).set(8, openRoom);
       dungeon.get(4).set(9, openRoom);
@@ -99,18 +101,20 @@ public class DungeonGen {
     }
   }
 
-  public void readRowsToPrint(int genCount) {
+  public void readRowsToSave(int genCount) {
     try {
       FileWriter fw = new FileWriter(String.valueOf(genCount) + ".txt");
-      fw.write("Merp");
+      for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+          fw.write(dungeon.get(i).get(j).toString());
+        }
+        fw.write("\n");
+      }
+      fw.write("\n");
       fw.close();
     }
     catch (IOException e) {
       System.out.println("Error writing to file...");
-    }
-    for (int i = 1; i < 9; i++) {
-      for (int j = 1; j < 9; j++) {
-      }
     }
   }
 
@@ -122,7 +126,7 @@ public class DungeonGen {
     dungeon.changeLastColumnToWallWithOpenings();
     dungeon.checkRowsForIsolatedRooms();
     dungeon.printDungeon();
-    dungeon.readRowsToPrint(int genCount);
+    dungeon.readRowsToSave(genCount);
   }
 
   public void printDungeon() {
@@ -132,6 +136,24 @@ public class DungeonGen {
       }
       System.out.println();
     }
+  }
+
+  public static DungeonGen loadDungeon(String fileName) {
+    DungeonGen dungeon = new DungeonGen();
+    ArrayList<Room> row = new ArrayList<Room>(12);
+
+    try (BufferedReader bf = new BufferedReader(new FileReader(fileName))) {
+      String readRow = "";
+      while (bf.readLine() != null) {
+        readRow = bf.readLine();
+        System.out.println(readRow);
+      }
+    }
+    catch (IOException e) {
+      System.out.println("Error loading file...");
+    }
+
+    return dungeon;
   }
 
   public static void main(String[] args) {
@@ -166,10 +188,18 @@ public class DungeonGen {
         dungeon = null;
       }
       else if (userChoice == 1) {
-        System.out.println("Loading...\n");
+        try {
+          System.out.print("Please enter the filename: ");
+          String fileName = scnr.next();
+
+          dungeon = loadDungeon(fileName);
+        }
+        catch (InputMismatchException e) {
+          System.out.println("Error: Incorrect filename\n");
+        }
       }
       else if (userChoice == 2) {
-        System.out.println("Exiting program...");
+        System.out.println("Exiting program...\n");
       }
       else {
         System.out.println("Please enter a valid choice");
