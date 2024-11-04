@@ -6,9 +6,11 @@
  * 3) ...
  */
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.io.FileWriter;
 
 public class DungeonGen {
   private ArrayList<ArrayList<Room>> dungeon;
@@ -97,7 +99,22 @@ public class DungeonGen {
     }
   }
 
-  public static void generateDungeon(DungeonGen dungeon) {
+  public void readRowsToPrint(int genCount) {
+    try {
+      FileWriter fw = new FileWriter(String.valueOf(genCount) + ".txt");
+      fw.write("Merp");
+      fw.close();
+    }
+    catch (IOException e) {
+      System.out.println("Error writing to file...");
+    }
+    for (int i = 1; i < 9; i++) {
+      for (int j = 1; j < 9; j++) {
+      }
+    }
+  }
+
+  public static void generateDungeon(DungeonGen dungeon, int genCount) {
     dungeon.createWallRow();
     dungeon.createRandomRoomRows();
     dungeon.createWallRow();
@@ -105,6 +122,7 @@ public class DungeonGen {
     dungeon.changeLastColumnToWallWithOpenings();
     dungeon.checkRowsForIsolatedRooms();
     dungeon.printDungeon();
+    dungeon.readRowsToPrint(int genCount);
   }
 
   public void printDungeon() {
@@ -120,6 +138,7 @@ public class DungeonGen {
     Scanner scnr = new Scanner(System.in);
     DungeonGen dungeon;
     int userChoice = -1;
+    int genCount = 0;
 
     while (userChoice != 2) {
       // Decision from user
@@ -129,8 +148,19 @@ public class DungeonGen {
 
       if (userChoice == 0) {
         System.out.println("Generating...\n");
+        genCount++;
+
+        try {
+          FileWriter fw = new FileWriter("dungeon_data.txt");
+          fw.write(String.valueOf(genCount));
+          fw.close();
+        } 
+        catch (IOException e) {
+          System.out.println("Could not open file...");
+        }
+
         dungeon = new DungeonGen();
-        generateDungeon(dungeon);
+        generateDungeon(dungeon, genCount);
         // TODO: Write dungeon to txt file
         // TODO: Increment how many times generate was called
         dungeon = null;
