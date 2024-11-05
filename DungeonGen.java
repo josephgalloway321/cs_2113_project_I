@@ -8,7 +8,7 @@
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
+//import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -187,12 +187,20 @@ public class DungeonGen {
     return loadedDungeon;
   }
 
+  public static void printLoadedDungeon(ArrayList<ArrayList<Room>> loadedDungeon) {
+    for (ArrayList<Room> row : loadedDungeon) {
+      for (Room room : row) {
+        System.out.print(room.toString());
+      }
+      System.out.println();
+    }
+  }
+
   public static void main(String[] args) {
     Scanner scnr = new Scanner(System.in);
     DungeonGen dungeon;
     ArrayList<ArrayList<Room>> generatedDungeon;
     ArrayList<ArrayList<Room>> loadedDungeon;
-    ArrayList<Room> loadedRow;
     int userChoice = -1;
     int genCount = 0;
 
@@ -203,9 +211,9 @@ public class DungeonGen {
       System.out.println();
 
       if (userChoice == 0) {
-        System.out.println("Generating...\n");
         genCount++;
-
+        System.out.println("Generating dungeon " + genCount + "...\n");
+        
         try {
           FileWriter fw = new FileWriter("dungeon_data.txt");
           fw.write(String.valueOf(genCount));
@@ -226,12 +234,8 @@ public class DungeonGen {
 
           loadedDungeon = new ArrayList<ArrayList<Room>>();
           loadedDungeon = loadDungeon(fileName);
-          for (ArrayList<Room> row : loadedDungeon) {
-            for (Room room : row) {
-              System.out.print(room.toString());
-            }
-            System.out.println();
-          }
+          printLoadedDungeon(loadedDungeon);
+          
           // Use loadedDungeon for future parts
         }
         catch (InputMismatchException e) {
