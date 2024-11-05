@@ -8,6 +8,7 @@
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -83,7 +84,7 @@ public class DungeonGen {
     }
   }
 
-  public void checkRowsForIsolatedRooms() {
+  public ArrayList<ArrayList<Room>> checkRowsForIsolatedRooms() {
     Room openRoom = new Room("opening");
     Room wallRoom = new Room("wall");
 
@@ -99,6 +100,7 @@ public class DungeonGen {
         }
       }
     }
+    return dungeon;
   }
 
   public void readRowsToSave(int genCount) {
@@ -118,17 +120,6 @@ public class DungeonGen {
     }
   }
 
-  public static void generateDungeon(DungeonGen dungeon, int genCount) {
-    dungeon.createWallRow();
-    dungeon.createRandomRoomRows();
-    dungeon.createWallRow();
-    dungeon.changeFirstAndLastColumnsToWalls();
-    dungeon.changeLastColumnToWallWithOpenings();
-    dungeon.checkRowsForIsolatedRooms();
-    dungeon.printDungeon();
-    dungeon.readRowsToSave(genCount);
-  }
-
   public void printDungeon() {
     for (ArrayList<Room> row : dungeon) {
       for (Room room : row) {
@@ -138,41 +129,58 @@ public class DungeonGen {
     }
   }
 
-  public static DungeonGen loadDungeon(String fileName) {
-    DungeonGen dungeon = new DungeonGen();
+  public static ArrayList<ArrayList<Room>> generateDungeon(DungeonGen dungeon, int genCount) {
+    ArrayList<ArrayList<Room>> generatedDungeon;
+    dungeon.createWallRow();
+    dungeon.createRandomRoomRows();
+    dungeon.createWallRow();
+    dungeon.changeFirstAndLastColumnsToWalls();
+    dungeon.changeLastColumnToWallWithOpenings();
+    generatedDungeon = dungeon.checkRowsForIsolatedRooms();
+    dungeon.printDungeon();
+    dungeon.readRowsToSave(genCount);
+
+    return generatedDungeon;
+  }
+
+  public static ArrayList<Room> loadDungeon(String fileName) {
     ArrayList<Room> row = new ArrayList<Room>(12);
     Room wallRoom;
     Room openingRoom;
-    //Room wallRom = new Room("wall");
-    //Room openingRoom = new Room("opening");
 
     try (BufferedReader bf = new BufferedReader(new FileReader(fileName))) {
       char[] rowChar;
       String readRow = "";
-      String merp = "";
       while ((readRow = bf.readLine()) != null) {
         rowChar = new char[22];  // Walls take up 2 characters each
-        //TODO: For each line read, go through each room, determine if opening or wall,
-        // then create room object then add row to dungeon
 
         for (int i = 0; i < readRow.length(); i++) {
           rowChar[i] = readRow.charAt(i);
-          merp = String.valueOf(rowChar[i]);
-          System.out.print(merp.equals("\uD83E\uDD86"));
+          if (Character.codePointAt(rowChar, i) == 11036) {
+            openingRoom = new Room("opening");
+            row.add(openingRoom);
+          }
+          else {
+            wallRoom = new Room("wall");
+            row.add(wallRoom);
+          }
         }
-        System.out.println();
       }
+      bf.close();
     }
     catch (IOException e) {
       System.out.println("Error loading file...");
     }
 
-    return dungeon;
+    return row;
   }
 
   public static void main(String[] args) {
     Scanner scnr = new Scanner(System.in);
     DungeonGen dungeon;
+    DungeonGen loadedDungeon;
+    ArrayList<ArrayList<Room>> generatedDungeon;
+    ArrayList<Room> loadedRow;
     int userChoice = -1;
     int genCount = 0;
 
@@ -196,18 +204,25 @@ public class DungeonGen {
         }
 
         dungeon = new DungeonGen();
-        generateDungeon(dungeon, genCount);
-        // TODO: Write dungeon to txt file
-        // TODO: Increment how many times generate was called
-        dungeon = null;
+        generatedDungeon = generateDungeon(dungeon, genCount);
+        //dungeon = null;
       }
       else if (userChoice == 1) {
         try {
           System.out.print("Please enter the filename: ");
           String fileName = scnr.next();
 
-          dungeon = loadDungeon(fileName);
-          dungeon.printDungeon();
+          loadedDungeon = new DungeonGen();
+          loadedRow = loadDungeon(fileName);
+          ArrayList<Room> tempRow = new ArrayList<>();
+
+          for (int i = 0; i < loadedRow.size(); i++) {
+            tempRow.add(loadedRow.get(i));
+            if (i % 10 == 0 && i > 1) {
+              System.out.println("\n" + tempRow);
+              tempRow.clear();
+            }
+          }
         }
         catch (InputMismatchException e) {
           System.out.println("Error: Incorrect filename\n");
