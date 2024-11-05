@@ -141,12 +141,26 @@ public class DungeonGen {
   public static DungeonGen loadDungeon(String fileName) {
     DungeonGen dungeon = new DungeonGen();
     ArrayList<Room> row = new ArrayList<Room>(12);
+    Room wallRoom;
+    Room openingRoom;
+    //Room wallRom = new Room("wall");
+    //Room openingRoom = new Room("opening");
 
     try (BufferedReader bf = new BufferedReader(new FileReader(fileName))) {
+      char[] rowChar;
       String readRow = "";
-      while (bf.readLine() != null) {
-        readRow = bf.readLine();
-        System.out.println(readRow);
+      String merp = "";
+      while ((readRow = bf.readLine()) != null) {
+        rowChar = new char[22];  // Walls take up 2 characters each
+        //TODO: For each line read, go through each room, determine if opening or wall,
+        // then create room object then add row to dungeon
+
+        for (int i = 0; i < readRow.length(); i++) {
+          rowChar[i] = readRow.charAt(i);
+          merp = String.valueOf(rowChar[i]);
+          System.out.print(merp.equals("\uD83E\uDD86"));
+        }
+        System.out.println();
       }
     }
     catch (IOException e) {
@@ -193,6 +207,7 @@ public class DungeonGen {
           String fileName = scnr.next();
 
           dungeon = loadDungeon(fileName);
+          dungeon.printDungeon();
         }
         catch (InputMismatchException e) {
           System.out.println("Error: Incorrect filename\n");
