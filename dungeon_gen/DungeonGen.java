@@ -1,5 +1,7 @@
 // Help Sauron create dungeons to store captured hobbits
 
+package dungeon_gen;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -86,10 +88,16 @@ public class DungeonGen {
         String currentRoom = dungeon.get(i).get(j).toString();
         String leftRoom = dungeon.get(i).get(j-1).toString();
         String rightRoom = dungeon.get(i).get(j+1).toString();
+        String topRoom = dungeon.get(i-1).get(j).toString();
+        String bottomRoom = dungeon.get(i+1).get(j).toString();
         if (currentRoom.equals(openRoom.toString()) && 
             (leftRoom.equals(wallRoom.toString()) && rightRoom.equals(wallRoom.toString()))) {
           dungeon.get(i).set(j+1, openRoom);
           dungeon.get(i).set(j-1, openRoom);
+        }
+        if (currentRoom.equals(wallRoom.toString()) && 
+        (topRoom.equals(openRoom.toString()) && bottomRoom.equals(openRoom.toString())) && rightRoom.equals(openRoom.toString()) && leftRoom.equals(wallRoom.toString())) {
+          dungeon.get(i).set(j, openRoom);
         }
       }
     }
