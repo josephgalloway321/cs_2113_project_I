@@ -1,14 +1,7 @@
 // Help Sauron create dungeons to store captured hobbits
-/* Algorithm
- * 1) Create 10 rows in 2D arraylist with 10 random rooms for each row
- * 2) Go through each row again and check the rooms to make sure each room is connected to another
- *   + Starting on the 2nd room of the 2nd row, if current room has an opening on the top and left side, change current room to an opening
- * 3) ...
- */
 
 import java.io.IOException;
 import java.util.ArrayList;
-//import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -84,7 +77,7 @@ public class DungeonGen {
     }
   }
 
-  public ArrayList<ArrayList<Room>> checkRowsForIsolatedRooms() {
+  public void checkRowsForIsolatedRooms() {
     Room openRoom = new Room("opening");
     Room wallRoom = new Room("wall");
 
@@ -100,7 +93,7 @@ public class DungeonGen {
         }
       }
     }
-    return dungeon;
+    
   }
 
   public void readRowsToSave(int genCount) {
@@ -129,23 +122,18 @@ public class DungeonGen {
     }
   }
 
-  public static ArrayList<ArrayList<Room>> generateDungeon(DungeonGen dungeon, int genCount) {
-    ArrayList<ArrayList<Room>> generatedDungeon;
-    dungeon.createWallRow();
-    dungeon.createRandomRoomRows();
-    dungeon.createWallRow();
-    dungeon.changeFirstAndLastColumnsToWalls();
-    dungeon.changeLastColumnToWallWithOpenings();
-    generatedDungeon = dungeon.checkRowsForIsolatedRooms();
-    dungeon.printDungeon();
-    dungeon.readRowsToSave(genCount);
-
-    return generatedDungeon;
+  public void generateDungeon(int genCount) {
+    createWallRow();
+    createRandomRoomRows();
+    createWallRow();
+    changeFirstAndLastColumnsToWalls();
+    changeLastColumnToWallWithOpenings();
+    checkRowsForIsolatedRooms();
+    printDungeon();
+    readRowsToSave(genCount);
   }
 
-  public static ArrayList<ArrayList<Room>> loadDungeon(String fileName) {
-    ArrayList<ArrayList<Room>> loadedDungeon = new ArrayList<ArrayList<Room>>();
-    
+  public void loadDungeon(String fileName) {
     Room wallRoom;
     Room openingRoom;
 
@@ -174,33 +162,20 @@ public class DungeonGen {
             isWall = true;
           }
         }
-        //System.out.println(row);
         rowChar = null;
-        loadedDungeon.add(row);
+        dungeon.add(row);
       }
       bf.close();
     }
     catch (IOException e) {
       System.out.println("Error loading file...");
     }
-
-    return loadedDungeon;
-  }
-
-  public static void printLoadedDungeon(ArrayList<ArrayList<Room>> loadedDungeon) {
-    for (ArrayList<Room> row : loadedDungeon) {
-      for (Room room : row) {
-        System.out.print(room.toString());
-      }
-      System.out.println();
-    }
   }
 
   public static void main(String[] args) {
     Scanner scnr = new Scanner(System.in);
     DungeonGen dungeon;
-    ArrayList<ArrayList<Room>> generatedDungeon;
-    ArrayList<ArrayList<Room>> loadedDungeon;
+    //ArrayList<ArrayList<Room>> loadedDungeon;
     int userChoice = -1;
     int genCount = 0;
 
@@ -223,20 +198,15 @@ public class DungeonGen {
           System.out.println("Could not open file...");
         }
         dungeon = new DungeonGen();
-        generatedDungeon = new ArrayList<ArrayList<Room>>();
-        generatedDungeon = generateDungeon(dungeon, genCount);
-        // Use generatedDungeon for future parts
+        dungeon.generateDungeon(genCount);
       }
       else if (userChoice == 1) {
         try {
           System.out.print("Please enter the filename: ");
           String fileName = scnr.next();
-
-          loadedDungeon = new ArrayList<ArrayList<Room>>();
-          loadedDungeon = loadDungeon(fileName);
-          printLoadedDungeon(loadedDungeon);
-          
-          // Use loadedDungeon for future parts
+          dungeon = new DungeonGen();
+          dungeon.loadDungeon(fileName);   
+          dungeon.printDungeon();       
         }
         catch (InputMismatchException e) {
           System.out.println("Error: Incorrect filename\n");
