@@ -1,0 +1,51 @@
+Dragon
+Hydra
+Griffin
+Phoenix
+Basilisk
+Chimera
+Vampire
+Zombie
+Ghost
+Lich
+Wraith
+Banshee
+Skeleton
+Unicorn
+Pegasus
+Kraken
+Minotaur
+Cyclops
+Cerberus
+Sphinx
+Fire Elemental
+Water Elemental
+Earth Elemental
+Air Elemental
+Ice Elemental
+Demon
+Succubus
+Hellhound
+Shadow
+Nightmare
+Orc
+Goblin
+Troll
+Ogre
+Dwarf
+Elf
+Fairy
+Ent
+Dryad
+Nymph
+Satyr
+Mermaid
+Sea Serpent
+Leviathan
+Siren
+Werewolf
+Wendigo
+Yeti
+Golem
+Djinn
+Meepis

@@ -1,0 +1,43 @@
+Longsword
+Short sword
+Broadsword
+Rapier
+Katana
+Scimitar
+Falchion
+Claymore
+Mace
+Warhammer
+Club
+Flail
+Morning Star
+Quarterstaff
+Scepter
+Polearms
+Spear
+Halberd
+Glaive
+Pike
+Naginata
+Trident
+Battle Axe
+Hand Axe
+War Axe
+Double-headed Axe
+Tomahawk
+Dagger
+Dirk
+Stiletto
+Bowie Knife
+Throwing Knife
+Kunai
+Nunchaku
+Sai
+Chakram
+Whip
+Scythe
+Sickle
+Hand-to-Hand
+Brass Knuckles
+Cestus
+Katar

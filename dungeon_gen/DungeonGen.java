@@ -110,7 +110,7 @@ public class DungeonGen {
       for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
           fw.write(dungeon.get(i).get(j).toString());
-        }
+\        }
         fw.write("\n");
       }
       fw.write("\n");
@@ -183,7 +183,6 @@ public class DungeonGen {
   public static void main(String[] args) {
     Scanner scnr = new Scanner(System.in);
     DungeonGen dungeon;
-    //ArrayList<ArrayList<Room>> loadedDungeon;
     int userChoice = -1;
     int genCount = 0;
 
