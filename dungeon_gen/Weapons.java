@@ -54,6 +54,6 @@ public class Weapons {
   }
 
   public String toString() {
-    return "_-WeaponType-" + weaponType + "-Damage-" + damage + "-Durability-" + durability;
+    return "_!WeaponType!" + weaponType + "!Damage!" + damage + "!Durability!" + durability;
   }
 }

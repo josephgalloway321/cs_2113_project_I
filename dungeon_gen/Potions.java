@@ -41,6 +41,6 @@ public class Potions {
   }
 
   public String toString() {
-    return "_-EffectType-" + effectType + "-Power-" + power + "-Uses-" + uses;
+    return "_!EffectType!" + effectType + "!Power!" + power + "!Uses!" + uses;
   }
 }

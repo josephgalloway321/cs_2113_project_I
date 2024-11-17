@@ -183,22 +183,27 @@ public class DungeonGen {
           ArrayList<Potions> potions = new ArrayList<>();
           ArrayList<Monsters> monsters = new ArrayList<>();
 
+          if (readRow.length() < 2) {
+            System.out.println("Empty open room found!");
+            continue;
+          }
+
           String[] itemsAndMonsters = readRow.split("_");
           
           for (String weaponPotionMonster : itemsAndMonsters) {
             String[] weaponInfo;
             String[] potionInfo;
             String[] monsterInfo;
-            System.out.println(weaponPotionMonster);
+            
             if (weaponPotionMonster.contains("WeaponType")) {
               String weaponType = "";
               int damage = 0;
               int durability = 0;
 
-              weaponInfo = weaponPotionMonster.split("-");
-              weaponType = weaponInfo[1];
-              damage = Integer.parseInt(weaponInfo[3]);
-              durability = Integer.parseInt(weaponInfo[5]);
+              weaponInfo = weaponPotionMonster.split("!");
+              weaponType = weaponInfo[2];
+              damage = Integer.parseInt(weaponInfo[4]);
+              durability = Integer.parseInt(weaponInfo[6]);
 
               Weapons weapon = new Weapons(weaponType, damage, durability);
               weapons.add(weapon);
@@ -208,10 +213,10 @@ public class DungeonGen {
               int power = 0;
               int uses = 0;
 
-              potionInfo = weaponPotionMonster.split("-");
-              effectType  = potionInfo[1];
-              power = Integer.parseInt(potionInfo [3]);
-              uses = Integer.parseInt(potionInfo [5]);
+              potionInfo = weaponPotionMonster.split("!");
+              effectType  = potionInfo[2];
+              power = Integer.parseInt(potionInfo [4]);
+              uses = Integer.parseInt(potionInfo [6]);
 
               Potions potion = new Potions(effectType, power, uses);
               potions.add(potion);
@@ -221,10 +226,10 @@ public class DungeonGen {
               int health = 0;
               String weaponType = "";
 
-              monsterInfo = weaponPotionMonster.split("-");
-              monsterType  = monsterInfo[1];
-              health = Integer.parseInt(monsterInfo[3]);
-              weaponType = monsterInfo[5];
+              monsterInfo = weaponPotionMonster.split("!");
+              monsterType  = monsterInfo[2];
+              health = Integer.parseInt(monsterInfo[4]);
+              weaponType = monsterInfo[6];
 
               Monsters monster = new Monsters(monsterType, health, weaponType);
               monsters.add(monster);
@@ -233,6 +238,7 @@ public class DungeonGen {
 
           openingRoom = new Room("opening", weapons, potions, monsters);
           row.add(openingRoom);
+          openingRoom.printItemsAndMonsters();
         }
         else {
           wallRoom = new Room("wall");
