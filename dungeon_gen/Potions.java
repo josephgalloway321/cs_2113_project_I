@@ -35,6 +35,6 @@ public class Potions {
   }
 
   public String toString() {
-    return "Effect Type: " + effectType + "\nPower: " + power + "\nUses: " + uses + "\n";
+    return "EffectType: " + effectType + " Power: " + power + " Uses: " + uses + "\n";
   }
 }

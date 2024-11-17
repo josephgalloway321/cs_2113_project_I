@@ -65,6 +65,6 @@ public class Monsters {
   }
 
   public String toString() {
-    return "Monster Type: " + monsterType + "\nHealth: " + health + "\nWeapon Type: " + weaponType;
+    return "MonsterType: " + monsterType + " Health: " + health + " WeaponType: " + weaponType + "\n";
   }
 }

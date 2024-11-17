@@ -62,7 +62,7 @@ public class Room {
   public void printItemsAndMonsters() {
     if (this.roomType.equals(opening)) {
       System.out.println();
-      
+
       if (weapons.size() > 0) {
         System.out.println("The following are weapons in this room: ");
         for (Weapons weapon: weapons) {
@@ -100,5 +100,17 @@ public class Room {
 
   public String toString() {
     return roomType;
+  }
+
+  public ArrayList<Weapons> getWeaponsInRoom() {
+    return this.weapons;
+  }
+
+  public ArrayList<Potions> getPotionsInRoom() {
+    return this.potions;
+  }
+
+  public ArrayList<Monsters> getMonstersInRoom() {
+    return this.monsters;
   }
 }

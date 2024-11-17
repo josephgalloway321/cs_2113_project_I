@@ -48,6 +48,6 @@ public class Weapons {
   }
 
   public String toString() {
-    return "Weapon Type: " + weaponType + "\nDamage: " + damage + "\nDurability: " + durability + "\n";
+    return "WeaponType: " + weaponType + " Damage: " + damage + " Durability: " + durability + "\n";
   }
 }

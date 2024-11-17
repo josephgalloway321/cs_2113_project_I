@@ -109,12 +109,36 @@ public class DungeonGen {
       FileWriter fw = new FileWriter(String.valueOf(genCount) + ".txt");
       for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
-          fw.write(dungeon.get(i).get(j).toString());
-          //dungeon.get(i).get(j).printItemsAndMonsters();  // Print each item & monster in each open room
+          Room currentRoom = dungeon.get(i).get(j);
+
+          // TEST
+          //currentRoom.printItemsAndMonsters();
+
+          fw.write(currentRoom.toString() + "\n");  // Save room type
+          if (currentRoom.toString().equals("\u2B1C")) {
+            ArrayList<Weapons> weapons = currentRoom.getWeaponsInRoom();
+            ArrayList<Potions> potions = currentRoom.getPotionsInRoom();
+            ArrayList<Monsters> monsters = currentRoom.getMonstersInRoom();
+
+            // Save each weapon 
+            for (Weapons weapon : weapons) {
+              fw.write(weapon.toString());
+            }
+
+            // Save each potion
+            for (Potions potion : potions) {
+              fw.write(potion.toString());
+            }
+
+            // Save each monster
+            for (Monsters monster : monsters) {
+              fw.write(monster.toString());
+            }
+          }
+
+          //fw.write("\n");  // Write a new line for the next object
         }
-        fw.write("\n");
       }
-      fw.write("\n");
       fw.close();
     }
     catch (IOException e) {
@@ -146,12 +170,33 @@ public class DungeonGen {
     Room wallRoom;
     Room openingRoom;
 
+    fileName += ".txt";
+
     try (BufferedReader bf = new BufferedReader(new FileReader(fileName))) {
       char[] rowChar;
       String readRow = "";
+
+      ArrayList<Room> row = new ArrayList<Room>(12);  // 10 Rooms at most per row
+
       while ((readRow = bf.readLine()) != null) {
-        ArrayList<Room> row = new ArrayList<Room>(12);
-        rowChar = new char[22];  // Walls take up 2 characters each
+        // 
+
+
+
+
+
+
+
+        
+
+        // Check if row has ten objects, 
+        // if so, then add row to dungeon then set row to null
+
+
+
+
+
+        rowChar = new char[200];  // Around 100 characters per row at most
         boolean isWall = false;
 
         for (int i = 0; i < readRow.length(); i++) {
@@ -163,6 +208,8 @@ public class DungeonGen {
           rowChar[i] = readRow.charAt(i);
           if (Character.codePointAt(rowChar, i) == 11036) {
             openingRoom = new Room("opening");
+
+
             row.add(openingRoom);
           }
           else {
@@ -210,7 +257,7 @@ public class DungeonGen {
       }
       else if (userChoice == 1) {
         try {
-          System.out.print("Please enter the filename: ");
+          System.out.print("Please enter the filename (Only the number): ");
           String fileName = scnr.next();
           dungeon = new DungeonGen();
           dungeon.loadDungeon(fileName);   
