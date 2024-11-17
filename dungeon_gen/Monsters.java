@@ -63,4 +63,8 @@ public class Monsters {
       System.out.println("Error loading file: " + e.getMessage());
     }
   }
+
+  public String toString() {
+    return "Monster Type: " + monsterType + "\nHealth: " + health + "\nWeapon Type: " + weaponType;
+  }
 }

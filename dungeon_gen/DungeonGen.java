@@ -110,7 +110,8 @@ public class DungeonGen {
       for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
           fw.write(dungeon.get(i).get(j).toString());
-\        }
+          //dungeon.get(i).get(j).printItemsAndMonsters();  // Print each item & monster in each open room
+        }
         fw.write("\n");
       }
       fw.write("\n");

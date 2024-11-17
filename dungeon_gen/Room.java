@@ -9,6 +9,7 @@ public class Room {
   private String roomType;
   private ArrayList<Weapons> weapons;
   private ArrayList<Potions> potions;
+  private ArrayList<Monsters> monsters;
 
   Random rand = new Random();
 
@@ -18,8 +19,9 @@ public class Room {
     }
     else {
       this.roomType = opening;
-      // In an open room, populate with items
+      // In an open room, populate with items & monsters
       populateOpeningRoomWithItems();
+      populateOpeningRoomWithMonsters();
     }
   }
 
@@ -42,20 +44,57 @@ public class Room {
         Potions potion = new Potions();
         potions.add(potion);
       }
-
     }
-
   }
 
-  public void printItems() {
-    System.out.println("The following are weapons in this room: ");
-    for (Weapons weapon: weapons) {
-      System.out.println(weapon);
-    }
+  private void populateOpeningRoomWithMonsters() {
+    // Randomly choose total number of monsters in this room
+    int randValueToChooseNumMonsters = rand.nextInt(4);  // Values between 0 and 3, inclusive
 
-    System.out.println("The following are potions in this room: ");
-    for (Potions potion: potions) {
-      System.out.println(potion);
+    monsters = new ArrayList<>();
+
+    for (int i = 0; i < randValueToChooseNumMonsters; i++) {
+      Monsters monster = new Monsters();
+      monsters.add(monster);
+    }
+  }
+
+  public void printItemsAndMonsters() {
+    if (this.roomType.equals(opening)) {
+      System.out.println();
+      
+      if (weapons.size() > 0) {
+        System.out.println("The following are weapons in this room: ");
+        for (Weapons weapon: weapons) {
+          System.out.println(weapon);
+        }
+      }
+      else {
+        System.out.println("There are no weapons in this room.");
+      }
+      
+      if (potions.size() > 0) {
+        System.out.println("The following are potions in this room: ");
+        for (Potions potion: potions) {
+          System.out.println(potion);
+        }
+      }
+      else {
+        System.out.println("There are no potions in this room.");
+      }
+
+      if (monsters.size() > 0) {
+        System.out.println("The following are monsters in this room: ");
+        for (Monsters monster : monsters) {
+          System.out.println(monster);
+        }
+      }
+      else {
+        System.out.println("There are no monsters in this room.");
+      }
+    }
+    else {
+      System.out.println("This room is a wall, so it contains neither items nor monsters.");
     }
   }
 
