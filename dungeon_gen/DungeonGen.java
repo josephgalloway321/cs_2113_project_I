@@ -184,7 +184,7 @@ public class DungeonGen {
           ArrayList<Monsters> monsters = new ArrayList<>();
 
           if (readRow.length() < 2) {
-            System.out.println("Empty open room found!");
+            //System.out.println("\nEmpty open room found!");
             continue;
           }
 
@@ -238,7 +238,7 @@ public class DungeonGen {
 
           openingRoom = new Room("opening", weapons, potions, monsters);
           row.add(openingRoom);
-          openingRoom.printItemsAndMonsters();
+          //openingRoom.printItemsAndMonsters();
         }
         else {
           wallRoom = new Room("wall");
