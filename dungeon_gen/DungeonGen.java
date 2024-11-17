@@ -111,11 +111,8 @@ public class DungeonGen {
         for (int j = 0; j < 10; j++) {
           Room currentRoom = dungeon.get(i).get(j);
 
-          // TEST
-          //currentRoom.printItemsAndMonsters();
-
-          fw.write(currentRoom.toString() + "\n");  // Save room type
           if (currentRoom.toString().equals("\u2B1C")) {
+            fw.write(currentRoom.toString());  // Save room type
             ArrayList<Weapons> weapons = currentRoom.getWeaponsInRoom();
             ArrayList<Potions> potions = currentRoom.getPotionsInRoom();
             ArrayList<Monsters> monsters = currentRoom.getMonstersInRoom();
@@ -134,9 +131,12 @@ public class DungeonGen {
             for (Monsters monster : monsters) {
               fw.write(monster.toString());
             }
+            fw.write("\n");
           }
 
-          //fw.write("\n");  // Write a new line for the next object
+          else {
+            fw.write(currentRoom.toString() + "\n");  // Save room type
+          }
         }
       }
       fw.close();
@@ -173,53 +173,78 @@ public class DungeonGen {
     fileName += ".txt";
 
     try (BufferedReader bf = new BufferedReader(new FileReader(fileName))) {
-      char[] rowChar;
       String readRow = "";
 
       ArrayList<Room> row = new ArrayList<Room>(12);  // 10 Rooms at most per row
 
       while ((readRow = bf.readLine()) != null) {
-        // 
+        if (readRow.codePointAt(0) == 11036) {
+          ArrayList<Weapons> weapons = new ArrayList<>();
+          ArrayList<Potions> potions = new ArrayList<>();
+          ArrayList<Monsters> monsters = new ArrayList<>();
 
+          String[] itemsAndMonsters = readRow.split("_");
+          
+          for (String weaponPotionMonster : itemsAndMonsters) {
+            String[] weaponInfo;
+            String[] potionInfo;
+            String[] monsterInfo;
+            System.out.println(weaponPotionMonster);
+            if (weaponPotionMonster.contains("WeaponType")) {
+              String weaponType = "";
+              int damage = 0;
+              int durability = 0;
 
+              weaponInfo = weaponPotionMonster.split("-");
+              weaponType = weaponInfo[1];
+              damage = Integer.parseInt(weaponInfo[3]);
+              durability = Integer.parseInt(weaponInfo[5]);
 
+              Weapons weapon = new Weapons(weaponType, damage, durability);
+              weapons.add(weapon);
+            }
+            else if (weaponPotionMonster.contains("EffectType")) {
+              String effectType = "";
+              int power = 0;
+              int uses = 0;
 
+              potionInfo = weaponPotionMonster.split("-");
+              effectType  = potionInfo[1];
+              power = Integer.parseInt(potionInfo [3]);
+              uses = Integer.parseInt(potionInfo [5]);
 
+              Potions potion = new Potions(effectType, power, uses);
+              potions.add(potion);
+            }
+            else if (weaponPotionMonster.contains("MonsterType")) {
+              String monsterType = "";
+              int health = 0;
+              String weaponType = "";
 
+              monsterInfo = weaponPotionMonster.split("-");
+              monsterType  = monsterInfo[1];
+              health = Integer.parseInt(monsterInfo[3]);
+              weaponType = monsterInfo[5];
 
-        
+              Monsters monster = new Monsters(monsterType, health, weaponType);
+              monsters.add(monster);
+            }
+          }
+
+          openingRoom = new Room("opening", weapons, potions, monsters);
+          row.add(openingRoom);
+        }
+        else {
+          wallRoom = new Room("wall");
+          row.add(wallRoom);
+        }
 
         // Check if row has ten objects, 
-        // if so, then add row to dungeon then set row to null
-
-
-
-
-
-        rowChar = new char[200];  // Around 100 characters per row at most
-        boolean isWall = false;
-
-        for (int i = 0; i < readRow.length(); i++) {
-          if (isWall) {
-            isWall = false;
-            continue;  // Skip next value to avoid duplicate wall
-          }
-
-          rowChar[i] = readRow.charAt(i);
-          if (Character.codePointAt(rowChar, i) == 11036) {
-            openingRoom = new Room("opening");
-
-
-            row.add(openingRoom);
-          }
-          else {
-            wallRoom = new Room("wall");
-            row.add(wallRoom);
-            isWall = true;
-          }
+        // If so, then add row to dungeon then create new row
+        if (row.size() >= 10) {
+          dungeon.add(row);
+          row = new ArrayList<Room>(12);
         }
-        rowChar = null;
-        dungeon.add(row);
       }
       bf.close();
     }

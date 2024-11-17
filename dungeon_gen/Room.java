@@ -25,6 +25,13 @@ public class Room {
     }
   }
 
+  public Room(String roomType, ArrayList<Weapons> weapons, ArrayList<Potions> potions, ArrayList<Monsters> monsters) {
+    this.roomType = opening;
+    this.weapons = weapons;
+    this.potions = potions;
+    this.monsters = monsters;
+  }
+
   private void populateOpeningRoomWithItems() {
     // Randomly choose total number of items in this room
     int randValueToChooseNumItems = rand.nextInt(4);  // Values between 0 and 3, inclusive
@@ -113,4 +120,6 @@ public class Room {
   public ArrayList<Monsters> getMonstersInRoom() {
     return this.monsters;
   }
+
+
 }

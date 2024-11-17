@@ -15,6 +15,12 @@ public class Potions {
     setPower();
   }
 
+  public Potions(String effectType, int power, int uses) {
+    this.effectType = effectType;
+    this.uses = uses;
+    this.power = power;
+  }
+
   private void setEffectType() {
     int randValueToChooseEffect = rand.nextInt(2);  // Values between 0 and 1, inclusive
     
@@ -35,6 +41,6 @@ public class Potions {
   }
 
   public String toString() {
-    return "EffectType: " + effectType + " Power: " + power + " Uses: " + uses + "\n";
+    return "_-EffectType-" + effectType + "-Power-" + power + "-Uses-" + uses;
   }
 }

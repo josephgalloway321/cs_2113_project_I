@@ -1,11 +1,100 @@
-🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆
-🦆⬜⬜⬜⬜⬜⬜⬜⬜⬜
-🦆⬜⬜⬜⬜⬜⬜⬜⬜⬜
-🦆⬜⬜⬜⬜⬜⬜⬜⬜⬜
-⬜⬜⬜⬜⬜⬜⬜⬜⬜🦆
-🦆⬜⬜⬜🦆⬜⬜⬜⬜⬜
-🦆⬜⬜🦆⬜⬜⬜⬜⬜⬜
-🦆⬜⬜🦆⬜⬜⬜⬜⬜⬜
-⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
-🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆
-
+🦆
+🦆
+🦆
+🦆
+🦆
+🦆
+🦆
+🦆
+🦆
+🦆
+🦆
+⬜_-WeaponType-Tomahawk-Damage-5-Durability-10_-WeaponType-Glaive-Damage-5-Durability-21_-MonsterType-Succubus-Health-20-MonsterWeaponType-Scepter_-MonsterType-Skeleton-Health-10-MonsterWeaponType-Falchion
+⬜_-WeaponType-Cestus-Damage-7-Durability-23_-WeaponType-Brass Knuckles-Damage-7-Durability-15_-MonsterType-Cyclops-Health-18-MonsterWeaponType-Double-headed Axe
+🦆
+⬜_-EffectType-repair-Power-8-Uses-3_-MonsterType-Shadow-Health-15-MonsterWeaponType-Hand-to-Hand_-MonsterType-Sphinx-Health-16-MonsterWeaponType-Scimitar
+⬜_-MonsterType-Fire Elemental-Health-15-MonsterWeaponType-Glaive_-MonsterType-Chimera-Health-13-MonsterWeaponType-Sickle_-MonsterType-Shadow-Health-12-MonsterWeaponType-Sickle
+⬜_-WeaponType-Halberd-Damage-3-Durability-27_-WeaponType-Polearms-Damage-3-Durability-26_-MonsterType-Nightmare-Health-16-MonsterWeaponType-Pike_-MonsterType-Dryad-Health-12-MonsterWeaponType-Hand-to-Hand
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+🦆
+⬜_-WeaponType-Nunchaku-Damage-5-Durability-22_-MonsterType-Minotaur-Health-17-MonsterWeaponType-Pike_-MonsterType-Griffin-Health-17-MonsterWeaponType-Longsword_-MonsterType-Cyclops-Health-10-MonsterWeaponType-Brass Knuckles
+⬜_-WeaponType-Rapier-Damage-8-Durability-27_-WeaponType-War Axe-Damage-1-Durability-25_-WeaponType-Short sword-Damage-6-Durability-14_-MonsterType-Orc-Health-14-MonsterWeaponType-Nunchaku
+⬜_-MonsterType-Banshee-Health-15-MonsterWeaponType-Cestus
+⬜_-WeaponType-Double-headed Axe-Damage-1-Durability-16_-WeaponType-Bowie Knife-Damage-8-Durability-25
+⬜_-WeaponType-Hand-to-Hand-Damage-4-Durability-27_-EffectType-repair-Power-9-Uses-2_-EffectType-repair-Power-9-Uses-1_-MonsterType-Dryad-Health-16-MonsterWeaponType-Short sword
+⬜_-EffectType-heal-Power-8-Uses-1_-MonsterType-Griffin-Health-12-MonsterWeaponType-Chakram
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+🦆
+⬜_-WeaponType-Mace-Damage-1-Durability-15_-EffectType-repair-Power-9-Uses-3_-EffectType-heal-Power-2-Uses-6_-MonsterType-Ice Elemental-Health-19-MonsterWeaponType-Stiletto_-MonsterType-Cyclops-Health-12-MonsterWeaponType-Dagger_-MonsterType-Mermaid-Health-17-MonsterWeaponType-Mace
+⬜_-WeaponType-Longsword-Damage-1-Durability-17_-WeaponType-Dagger-Damage-5-Durability-21_-WeaponType-Nunchaku-Damage-7-Durability-29_-MonsterType-Lich-Health-17-MonsterWeaponType-Morning Star
+⬜_-EffectType-heal-Power-7-Uses-4_-EffectType-repair-Power-10-Uses-10_-EffectType-heal-Power-6-Uses-7_-MonsterType-Troll-Health-14-MonsterWeaponType-Halberd
+⬜_-MonsterType-Dwarf-Health-16-MonsterWeaponType-Claymore_-MonsterType-Nightmare-Health-18-MonsterWeaponType-Falchion
+⬜_-EffectType-heal-Power-5-Uses-7_-MonsterType-Vampire-Health-17-MonsterWeaponType-Chakram_-MonsterType-Skeleton-Health-15-MonsterWeaponType-Glaive_-MonsterType-Sphinx-Health-18-MonsterWeaponType-Trident
+⬜_-WeaponType-Dagger-Damage-10-Durability-11_-EffectType-heal-Power-6-Uses-10_-MonsterType-Cerberus-Health-14-MonsterWeaponType-Hand Axe
+⬜_-EffectType-repair-Power-3-Uses-8_-MonsterType-Chimera-Health-18-MonsterWeaponType-Claymore
+🦆
+🦆
+🦆
+⬜_-EffectType-heal-Power-9-Uses-7_-MonsterType-Lich-Health-14-MonsterWeaponType-Chakram_-MonsterType-Mermaid-Health-10-MonsterWeaponType-Katana
+⬜_-EffectType-heal-Power-6-Uses-6
+⬜_-WeaponType-Sickle-Damage-10-Durability-14_-WeaponType-Cestus-Damage-5-Durability-18_-WeaponType-Broadsword-Damage-6-Durability-26_-MonsterType-Hydra-Health-13-MonsterWeaponType-Warhammer_-MonsterType-Fire Elemental-Health-15-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Club-Damage-2-Durability-26_-MonsterType-Cerberus-Health-10-MonsterWeaponType-Scythe_-MonsterType-Troll-Health-14-MonsterWeaponType-Double-headed Axe
+⬜_-WeaponType-Trident-Damage-3-Durability-30_-EffectType-repair-Power-5-Uses-8_-EffectType-heal-Power-7-Uses-4_-MonsterType-Shadow-Health-16-MonsterWeaponType-Double-headed Axe
+⬜
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+🦆
+⬜_-EffectType-repair-Power-3-Uses-2_-MonsterType-Shadow-Health-10-MonsterWeaponType-Chakram
+⬜_-WeaponType-Claymore-Damage-6-Durability-27_-WeaponType-Spear-Damage-8-Durability-11_-EffectType-repair-Power-4-Uses-10
+⬜_-WeaponType-Brass Knuckles-Damage-4-Durability-11_-EffectType-repair-Power-6-Uses-8_-EffectType-heal-Power-5-Uses-7
+⬜_-WeaponType-Short sword-Damage-1-Durability-19_-WeaponType-Sickle-Damage-6-Durability-12_-EffectType-heal-Power-2-Uses-8
+⬜_-WeaponType-Claymore-Damage-8-Durability-10_-WeaponType-Katana-Damage-10-Durability-20_-EffectType-heal-Power-3-Uses-4
+⬜_-EffectType-heal-Power-3-Uses-5_-MonsterType-Ghost-Health-10-MonsterWeaponType-Falchion_-MonsterType-Minotaur-Health-15-MonsterWeaponType-Throwing Knife_-MonsterType-Banshee-Health-11-MonsterWeaponType-Halberd
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-EffectType-repair-Power-3-Uses-2_-MonsterType-Shadow-Health-10-MonsterWeaponType-Chakram
+⬜_-EffectType-repair-Power-10-Uses-6_-MonsterType-Unicorn-Health-11-MonsterWeaponType-Broadsword
+⬜_-EffectType-repair-Power-3-Uses-2_-MonsterType-Shadow-Health-10-MonsterWeaponType-Chakram
+🦆
+⬜_-MonsterType-Cyclops-Health-11-MonsterWeaponType-Cestus_-MonsterType-Ice Elemental-Health-14-MonsterWeaponType-Katana_-MonsterType-Unicorn-Health-10-MonsterWeaponType-Broadsword
+⬜_-WeaponType-Stiletto-Damage-8-Durability-11_-WeaponType-Hand Axe-Damage-4-Durability-18_-EffectType-heal-Power-5-Uses-2_-MonsterType-Cerberus-Health-19-MonsterWeaponType-Nunchaku
+⬜_-EffectType-heal-Power-3-Uses-9_-MonsterType-Earth Elemental-Health-17-MonsterWeaponType-Dirk_-MonsterType-Hydra-Health-19-MonsterWeaponType-Broadsword_-MonsterType-Dryad-Health-12-MonsterWeaponType-Tomahawk
+⬜_-WeaponType-War Axe-Damage-7-Durability-26_-EffectType-heal-Power-2-Uses-2_-EffectType-repair-Power-10-Uses-3_-MonsterType-Kraken-Health-20-MonsterWeaponType-Nunchaku_-MonsterType-Kraken-Health-12-MonsterWeaponType-Cestus
+🦆
+🦆
+⬜_-EffectType-repair-Power-3-Uses-2_-MonsterType-Shadow-Health-10-MonsterWeaponType-Chakram
+⬜_-WeaponType-Glaive-Damage-2-Durability-28_-MonsterType-Nymph-Health-11-MonsterWeaponType-Flail
+⬜_-EffectType-repair-Power-3-Uses-2_-MonsterType-Shadow-Health-10-MonsterWeaponType-Chakram
+🦆
+⬜_-WeaponType-Kunai-Damage-8-Durability-25_-MonsterType-Ent-Health-20-MonsterWeaponType-Kunai_-MonsterType-Mermaid-Health-19-MonsterWeaponType-Katana_-MonsterType-Fairy-Health-17-MonsterWeaponType-Hand Axe
+⬜_-WeaponType-Quarterstaff-Damage-6-Durability-23_-WeaponType-Flail-Damage-8-Durability-26_-EffectType-heal-Power-7-Uses-3_-MonsterType-Dryad-Health-10-MonsterWeaponType-War Axe
+⬜_-WeaponType-Scepter-Damage-10-Durability-14_-WeaponType-Battle Axe-Damage-3-Durability-16_-MonsterType-Dragon-Health-18-MonsterWeaponType-Katana
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+🦆
+⬜_-MonsterType-Ogre-Health-20-MonsterWeaponType-Spear_-MonsterType-Zombie-Health-14-MonsterWeaponType-Polearms_-MonsterType-Earth Elemental-Health-12-MonsterWeaponType-Morning Star
+⬜_-EffectType-heal-Power-9-Uses-7_-EffectType-heal-Power-2-Uses-5
+⬜_-EffectType-heal-Power-2-Uses-7
+⬜
+⬜_-MonsterType-Fire Elemental-Health-16-MonsterWeaponType-Hand-to-Hand
+⬜_-EffectType-repair-Power-7-Uses-6_-MonsterType-Goblin-Health-18-MonsterWeaponType-Whip_-MonsterType-Sphinx-Health-11-MonsterWeaponType-Falchion_-MonsterType-Cerberus-Health-20-MonsterWeaponType-Tomahawk
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+⬜_-WeaponType-Battle Axe-Damage-8-Durability-26_-WeaponType-War Axe-Damage-2-Durability-22_-WeaponType-Broadsword-Damage-3-Durability-16_-MonsterType-Ghost-Health-14-MonsterWeaponType-Scepter_-MonsterType-Satyr-Health-18-MonsterWeaponType-Scimitar
+🦆
+🦆
+🦆
+🦆
+🦆
+🦆
+🦆
+🦆
+🦆
+🦆

@@ -18,6 +18,12 @@ public class Weapons {
     setDurability();
   }
 
+  public Weapons(String weaponType, int damage, int durability) {
+    this.damage = damage;
+    this.durability = durability;
+    this.weaponType = weaponType;
+  }
+
   private void setWeaponType() {
     int randValueToChooseWeapon = rand.nextInt(42);  // Values between 0 and 42
     int lineCounter = 0;
@@ -48,6 +54,6 @@ public class Weapons {
   }
 
   public String toString() {
-    return "WeaponType: " + weaponType + " Damage: " + damage + " Durability: " + durability + "\n";
+    return "_-WeaponType-" + weaponType + "-Damage-" + damage + "-Durability-" + durability;
   }
 }

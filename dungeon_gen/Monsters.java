@@ -18,6 +18,12 @@ public class Monsters {
     setWeaponType();
   }
 
+  public Monsters(String monsterType, int health, String weaponType) {
+    this.monsterType = monsterType;
+    this.health = health;
+    this.weaponType = weaponType;
+  }
+
   private void setMonsterType() {
     int randValueToChooseMonster = rand.nextInt(42);  // Values between 0 and 42
     int lineCounter = 0;
@@ -65,6 +71,6 @@ public class Monsters {
   }
 
   public String toString() {
-    return "MonsterType: " + monsterType + " Health: " + health + " WeaponType: " + weaponType + "\n";
+    return "_-MonsterType-" + monsterType + "-Health-" + health + "-MonsterWeaponType-" + weaponType;
   }
 }
