@@ -259,6 +259,11 @@ public class DungeonGen {
     }
   }
 
+  public static void beginGame(DungeonGen dungeon) {
+    Player player = new Player();
+    dungeon.printDungeon();
+  }
+
   public static void main(String[] args) {
     Scanner scnr = new Scanner(System.in);
     DungeonGen dungeon;
@@ -285,6 +290,7 @@ public class DungeonGen {
         }
         dungeon = new DungeonGen();
         dungeon.generateDungeon(genCount);
+        beginGame(dungeon);  // Begin game
       }
       else if (userChoice == 1) {
         try {
@@ -293,6 +299,7 @@ public class DungeonGen {
           dungeon = new DungeonGen();
           dungeon.loadDungeon(fileName);   
           dungeon.printDungeon();       
+          beginGame(dungeon);  // Begin game
         }
         catch (InputMismatchException e) {
           System.out.println("Error: Incorrect filename\n");

@@ -53,6 +53,10 @@ public class Weapons {
     this.durability = rand.nextInt(21) + 10;  // Values between 10 and 30, inclusive
   }
 
+  public String toStringWeaponType() {
+    return weaponType;
+  }
+
   public String toString() {
     return "_!WeaponType!" + weaponType + "!Damage!" + damage + "!Durability!" + durability;
   }
