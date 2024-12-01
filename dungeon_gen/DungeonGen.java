@@ -314,32 +314,48 @@ public class DungeonGen {
       int playerColumnPosition = player.getColumnPosition();
       
       if (userChoice == 'n' || userChoice == 'N') {
-        if (dungeon.getRoom(playerRowPosition - 1, playerColumnPosition).toString().equals("\u2B1C")) {
-          System.out.println("North");
+        if (player.getRowPosition() == 0) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition - 1, playerColumnPosition).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition - 1, playerColumnPosition);
+          printDungeonWithPlayer(dungeon, player);
         }
         else {
           System.out.println("Move failed");
         }
       }
       else if (userChoice == 's' || userChoice == 'S') {
-        if (dungeon.getRoom(playerRowPosition + 1, playerColumnPosition).toString().equals("\u2B1C")) {
-          System.out.println("South");
+        if (player.getRowPosition() == 9) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition + 1, playerColumnPosition).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition + 1, playerColumnPosition);
+          printDungeonWithPlayer(dungeon, player);
         }
         else {
           System.out.println("Move failed");
         }
       }
       else if (userChoice == 'e' || userChoice == 'E') {
-        if (dungeon.getRoom(playerRowPosition, playerColumnPosition + 1).toString().equals("\u2B1C")) {
-          System.out.println("East");
+        if (player.getColumnPosition() == 9) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition, playerColumnPosition + 1).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition, playerColumnPosition + 1);
+          printDungeonWithPlayer(dungeon, player);
         }
         else {
           System.out.println("Move failed");
         }
       }
       else if (userChoice == 'w' || userChoice == 'W') {
-        if (dungeon.getRoom(playerRowPosition, playerColumnPosition - 1).toString().equals("\u2B1C")) {
-          System.out.println("West");
+        if (player.getColumnPosition() == 0) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition, playerColumnPosition - 1).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition, playerColumnPosition - 1);
+          printDungeonWithPlayer(dungeon, player);
         }
         else {
           System.out.println("Move failed");
