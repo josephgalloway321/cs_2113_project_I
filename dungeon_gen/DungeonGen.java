@@ -308,20 +308,42 @@ public class DungeonGen {
     printDungeonWithPlayer(dungeon, player);
 
     while (userChoice != 'q') {
-      System.out.print("Choose action (N, S, E, or W) or e: ");
+      System.out.print("Choose action (N, S, E, or W) or q to quit: ");
       userChoice = scnr.next().charAt(0);
+      int playerRowPosition = player.getRowPosition();
+      int playerColumnPosition = player.getColumnPosition();
       
       if (userChoice == 'n' || userChoice == 'N') {
-        System.out.println("North");
+        if (dungeon.getRoom(playerRowPosition - 1, playerColumnPosition).toString().equals("\u2B1C")) {
+          System.out.println("North");
+        }
+        else {
+          System.out.println("Move failed");
+        }
       }
       else if (userChoice == 's' || userChoice == 'S') {
-        System.out.println("South");
+        if (dungeon.getRoom(playerRowPosition + 1, playerColumnPosition).toString().equals("\u2B1C")) {
+          System.out.println("South");
+        }
+        else {
+          System.out.println("Move failed");
+        }
       }
       else if (userChoice == 'e' || userChoice == 'E') {
-        System.out.println("East");
+        if (dungeon.getRoom(playerRowPosition, playerColumnPosition + 1).toString().equals("\u2B1C")) {
+          System.out.println("East");
+        }
+        else {
+          System.out.println("Move failed");
+        }
       }
       else if (userChoice == 'w' || userChoice == 'W') {
-        System.out.println("West");
+        if (dungeon.getRoom(playerRowPosition, playerColumnPosition - 1).toString().equals("\u2B1C")) {
+          System.out.println("West");
+        }
+        else {
+          System.out.println("Move failed");
+        }
       }
       else if (userChoice == 'q' || userChoice == 'Q') {
         System.out.println("Ending game...\n");
