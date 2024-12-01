@@ -7,14 +7,18 @@ public class Player {
   private ArrayList<Potions> potionsInventory;
   private final String player = "\uD83D\uDD34";
   private String equippedWeapon;
-  private int rowPosition = 0;
-  private int columnPosition = 0;
+  private int rowPosition;
+  private int columnPosition;
+  private int health;
 
   public Player() {
     weaponsInventory = new ArrayList<Weapons>();
     potionsInventory = new ArrayList<Potions>();
 
-    //System.out.println(player);
+    rowPosition = 0;
+    columnPosition = 0;
+    health = 100;
+
     Weapons weapon = new Weapons();  // Give the new player a random weapon 
     weaponsInventory.add(weapon);
     this.equippedWeapon = weaponsInventory.get(0).toStringWeaponType();  // Equip player w/ weapon
@@ -34,6 +38,14 @@ public class Player {
 
   public int getColumnPosition() {
     return this.columnPosition;
+  }
+
+  public void addWeaponToInventory(Weapons weapon) {
+    this.weaponsInventory.add(weapon);
+  }
+
+  public void addPotionToInventory(Potions potion) {
+    this.potionsInventory.add(potion);
   }
 
   public String toString() {

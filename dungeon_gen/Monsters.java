@@ -70,6 +70,14 @@ public class Monsters {
     }
   }
 
+  public String toStringMonsterType() {
+    return this.monsterType;
+  }
+
+  public String toStringMonsterInfo() {
+    return this.monsterType + ", Health: " + this.health + ", Weapon: " + this.weaponType;
+  }
+
   public String toString() {
     return "_!MonsterType!" + monsterType + "!Health!" + health + "!WeaponForMonster!" + weaponType;
   }

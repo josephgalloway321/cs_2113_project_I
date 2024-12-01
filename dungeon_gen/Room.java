@@ -70,38 +70,47 @@ public class Room {
     if (this.roomType.equals(opening)) {
       System.out.println();
 
-      if (weapons.size() > 0) {
-        System.out.println("The following are weapons in this room: ");
-        for (Weapons weapon: weapons) {
-          System.out.println(weapon);
+      if (monsters.size() > 0) {
+        System.out.print("Monsters: ");
+        for (int i = 0; i < monsters.size(); i++) {
+          System.out.print(monsters.get(i).toStringMonsterType() + " " + i);
+          if (i < monsters.size() - 1) {
+            System.out.print(", ");
+          }
         }
+        System.out.println();
       }
       else {
-        System.out.println("There are no weapons in this room.");
+        System.out.println("Monsters: None");
+      }
+
+      if (weapons.size() > 0) {
+        System.out.print("Weapons: ");
+        for (int i = 0; i < weapons.size(); i++) {
+          System.out.print(weapons.get(i).toStringWeaponType() + " " + i);
+          if (i < weapons.size() - 1) {
+            System.out.print(", ");
+          }
+        }
+        System.out.println();
+      }
+      else {
+        System.out.println("Weapons: None");
       }
       
       if (potions.size() > 0) {
-        System.out.println("The following are potions in this room: ");
-        for (Potions potion: potions) {
-          System.out.println(potion);
+        System.out.print("Potions: ");
+        for (int i = 0; i < potions.size(); i++) {
+          System.out.print(potions.get(i).toStringPotionType() + " " + i);
+          if (i < potions.size() - 1) {
+            System.out.print(", ");
+          }
         }
+        System.out.println();
       }
       else {
-        System.out.println("There are no potions in this room.");
+        System.out.println("Potions: None");
       }
-
-      if (monsters.size() > 0) {
-        System.out.println("The following are monsters in this room: ");
-        for (Monsters monster : monsters) {
-          System.out.println(monster);
-        }
-      }
-      else {
-        System.out.println("There are no monsters in this room.");
-      }
-    }
-    else {
-      System.out.println("This room is a wall, so it contains neither items nor monsters.");
     }
   }
 
@@ -121,5 +130,5 @@ public class Room {
     return this.monsters;
   }
 
-
+  
 }

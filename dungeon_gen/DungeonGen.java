@@ -278,6 +278,7 @@ public class DungeonGen {
       }
       System.out.println();
     }
+    dungeon.getRoom(playerRowPosition, playerColumnPosition).printItemsAndMonsters();
   }
 
   public static void setPlayerInitialPosition(DungeonGen dungeon, Player player) {
@@ -299,6 +300,95 @@ public class DungeonGen {
     }
   }
 
+  public static void interactWithRoom(Room room, Player player, Scanner scnr) {
+    int userChoice = 0;
+    while (userChoice != 11) {
+      System.out.println("\nPlease type in a room interaction option from the list below:\n" + 
+                           "0) Examine monster [index]\n" + 
+                           "1) Examine weapon [index]\n" +
+                           "2) Examine potion [index]\n" +
+                           "3) Take weapon [index]\n" + 
+                           "4) Take potion [index]\n" + 
+                           "5) Weapon inventory [index]\n" +
+                           "6) Potion inventory [index]\n" + 
+                           "7) Inventory\n" + 
+                           "8) Use from weapon inventory [index]\n" +
+                           "9) Use from potion inventory [index]\n" + 
+                           "10) Attack [index]\n" + 
+                           "11) Return");
+      userChoice = scnr.nextInt();
+
+      if (userChoice == 0) {
+        System.out.println("Which monster do you want to examine? (Enter the index): ");
+        userChoice = scnr.nextInt();
+        System.out.println(room.getMonstersInRoom().get(userChoice).toStringMonsterInfo());
+      }
+      else if (userChoice == 1) {
+        System.out.println("Which weapon do you want to examine? (Enter the index): ");
+        userChoice = scnr.nextInt();
+        System.out.println(room.getWeaponsInRoom().get(userChoice).toStringWeaponInfo());
+      }
+      else if (userChoice == 2) {
+        System.out.println("Which potion do you want to examine? (Enter the index): ");
+        userChoice = scnr.nextInt();
+        System.out.println(room.getPotionsInRoom().get(userChoice).toStringPotionInfo());
+      }
+      else if (userChoice == 3) {
+        System.out.println("Which weapon do you want to take? (Enter the index): ");
+        userChoice = scnr.nextInt();
+        player.addWeaponToInventory(room.getWeaponsInRoom().get(userChoice));
+        System.out.println("Added " + room.getWeaponsInRoom().get(userChoice).toStringWeaponInfo() + " to weapons inventory");
+      }
+      else if (userChoice == 4) {
+        //TODO: Complete option
+        System.out.println("Which potion do you want to take? (Enter the index): ");
+        userChoice = scnr.nextInt();
+        player.addPotionToInventory(room.getPotionsInRoom().get(userChoice));
+        System.out.println("Added " + room.getPotionsInRoom().get(userChoice).toStringPotionInfo() + " to potions inventory");
+      }
+      else if (userChoice == 5) {
+        //TODO: Complete option
+        System.out.println("Which weapon inventory item do you want to know more about? (Enter the index): ");
+        userChoice = scnr.nextInt();
+
+      }
+      else if (userChoice == 6) {
+        //TODO: Complete option
+        System.out.println("Which potion inventory item do you want to know more about? (Enter the index): ");
+        userChoice = scnr.nextInt();
+
+      }
+      else if (userChoice == 7) {
+        //TODO: Complete option
+        System.out.println("Printing current inventory...");
+      }
+      else if (userChoice == 8) {
+        //TODO: Complete option
+        System.out.println("Which weapon inventory item do you want to use? (Enter the index): ");
+        userChoice = scnr.nextInt();
+
+      }
+      else if (userChoice == 9) {
+        //TODO: Complete option
+        System.out.println("Which potion inventory item do you want to use? (Enter the index): ");
+        userChoice = scnr.nextInt();
+
+      }
+      else if (userChoice == 10) {
+        //TODO: Complete option
+        System.out.println("Which monster do you want to attack? (Enter the index: )");
+        userChoice = scnr.nextInt();
+
+      }
+      else if (userChoice == 11) {
+        System.out.println("Returning to main menu...");
+      }
+      else {
+        System.out.println("Please choose a valid option");
+      }
+    }
+  }
+
   public static void beginGame(DungeonGen dungeon, Scanner scnr) {
     Player player = new Player();
     char userChoice = ' ';
@@ -308,7 +398,10 @@ public class DungeonGen {
     printDungeonWithPlayer(dungeon, player);
 
     while (userChoice != 'q') {
-      System.out.print("Choose action (N, S, E, or W) or q to quit: ");
+      System.out.println("\nEnter one of the following characters:\n" +
+                        "- Move player (n, s, e, or w)\n" + 
+                        "- Interact with room (i)\n" +
+                        "- Quit game (q)");
       userChoice = scnr.next().charAt(0);
       int playerRowPosition = player.getRowPosition();
       int playerColumnPosition = player.getColumnPosition();
@@ -363,6 +456,9 @@ public class DungeonGen {
       }
       else if (userChoice == 'q' || userChoice == 'Q') {
         System.out.println("Ending game...\n");
+      }
+      else if (userChoice == 'i' || userChoice == 'I') {
+        interactWithRoom(dungeon.getRoom(playerRowPosition, playerColumnPosition), player, scnr);
       }
       else {
         System.out.println("Please choose a valid option!");

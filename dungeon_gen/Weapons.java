@@ -54,7 +54,11 @@ public class Weapons {
   }
 
   public String toStringWeaponType() {
-    return weaponType;
+    return this.weaponType;
+  }
+
+  public String toStringWeaponInfo() {
+    return this.weaponType + ", Damage: " + this.damage + ", Durability: " + this.durability;
   }
 
   public String toString() {

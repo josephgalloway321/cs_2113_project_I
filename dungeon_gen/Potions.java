@@ -25,10 +25,10 @@ public class Potions {
     int randValueToChooseEffect = rand.nextInt(2);  // Values between 0 and 1, inclusive
     
     if (randValueToChooseEffect == 0) {
-      this.effectType = "heal";
+      this.effectType = "Healing";
     }
     else {
-      this.effectType = "repair";
+      this.effectType = "Repairing";
     }    
   }
 
@@ -38,6 +38,14 @@ public class Potions {
 
   private void setPower() {
     this.power = rand.nextInt(10) + 1;  // Values between 1 and 10, inclusive
+  }
+
+  public String toStringPotionType() {
+    return "Potion of " + this.effectType;
+  }
+
+  public String toStringPotionInfo() {
+    return this.effectType + ", Power: " + this.power + ", Uses: " + this.uses;
   }
 
   public String toString() {
