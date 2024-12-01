@@ -155,6 +155,10 @@ public class DungeonGen {
     }
   }
 
+  public Room getRoom(int row, int col) {
+    return dungeon.get(row).get(col);
+  }
+
   public void generateDungeon(int genCount) {
     createWallRow();
     createRandomRoomRows();
@@ -162,7 +166,7 @@ public class DungeonGen {
     changeFirstAndLastColumnsToWalls();
     changeLastColumnToWallWithOpenings();
     checkRowsForIsolatedRooms();
-    printDungeon();
+    //printDungeon();
     readRowsToSave(genCount);
   }
 
@@ -259,9 +263,73 @@ public class DungeonGen {
     }
   }
 
-  public static void beginGame(DungeonGen dungeon) {
+  public static void printDungeonWithPlayer(DungeonGen dungeon, Player player) {
+    int playerRowPosition = player.getRowPosition();
+    int playerColumnPosition = player.getColumnPosition();
+
+    for (int row = 0; row < 10; row++) {
+      for (int col = 0; col < 10; col++) {
+        if (row == playerRowPosition && col == playerColumnPosition) {
+          System.out.print(player.toString());
+        }
+        else {
+          System.out.print(dungeon.getRoom(row, col));
+        }
+      }
+      System.out.println();
+    }
+  }
+
+  public static void setPlayerInitialPosition(DungeonGen dungeon, Player player) {
+    Random rand = new Random();
+    Room room;
+    int randRow = 0;
+    int randCol = 0;
+    boolean isRoomWall = true;
+
+    while (isRoomWall) {
+      randRow = rand.nextInt(10);
+      randCol = rand.nextInt(10);
+      room = dungeon.getRoom(randRow, randCol);
+
+      if (room.toString().equals("\u2B1C")) {
+        isRoomWall = false;
+        player.setPosition(randRow, randCol);
+      }
+    }
+  }
+
+  public static void beginGame(DungeonGen dungeon, Scanner scnr) {
     Player player = new Player();
-    dungeon.printDungeon();
+    char userChoice = ' ';
+
+    System.out.println("Beginning game...\n");
+    setPlayerInitialPosition(dungeon, player);
+    printDungeonWithPlayer(dungeon, player);
+
+    while (userChoice != 'q') {
+      System.out.print("Choose action (N, S, E, or W) or e: ");
+      userChoice = scnr.next().charAt(0);
+      
+      if (userChoice == 'n' || userChoice == 'N') {
+        System.out.println("North");
+      }
+      else if (userChoice == 's' || userChoice == 'S') {
+        System.out.println("South");
+      }
+      else if (userChoice == 'e' || userChoice == 'E') {
+        System.out.println("East");
+      }
+      else if (userChoice == 'w' || userChoice == 'W') {
+        System.out.println("West");
+      }
+      else if (userChoice == 'q' || userChoice == 'Q') {
+        System.out.println("Ending game...\n");
+      }
+      else {
+        System.out.println("Please choose a valid option!");
+      }
+    }
   }
 
   public static void main(String[] args) {
@@ -290,7 +358,7 @@ public class DungeonGen {
         }
         dungeon = new DungeonGen();
         dungeon.generateDungeon(genCount);
-        beginGame(dungeon);  // Begin game
+        beginGame(dungeon, scnr);  // Begin game
       }
       else if (userChoice == 1) {
         try {
@@ -299,7 +367,7 @@ public class DungeonGen {
           dungeon = new DungeonGen();
           dungeon.loadDungeon(fileName);   
           dungeon.printDungeon();       
-          beginGame(dungeon);  // Begin game
+          beginGame(dungeon, scnr);  // Begin game
         }
         catch (InputMismatchException e) {
           System.out.println("Error: Incorrect filename\n");
