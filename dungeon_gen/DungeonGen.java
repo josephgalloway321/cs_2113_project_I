@@ -301,27 +301,31 @@ public class DungeonGen {
   }
 
   public static void monstersInRoomAttackPlayer(ArrayList<Monsters> roomMonsters, Player player) {
-    // TODO: Complete method
-    // TODO: Assign this method to appropriate options in interaction menu
-    // TODO: Fix monsters' weapons
-    System.out.println("\nThe monsters in this room have attacked!");
-    System.out.println("Player health: " + player.getPlayerHealth());
-
-    for (Monsters monster : roomMonsters) {
-      if (monster.getHealth() > 0) {
-        System.out.println(monster.toStringMonsterType() + " attacked!");
-        //player.damagePlayer(monster.getWeapon().getDamage());
-        System.out.println("Player health after attack: " + player.getPlayerHealth());
-      }
-      else {
-        System.out.println(monster.toStringMonsterType() + "'s health is less than 1, so it can't attack");
+    if (roomMonsters.size() > 0) {
+      System.out.println("\nThe monsters in this room have attacked!");
+      System.out.println("Player health: " + player.getPlayerHealth());
+  
+      for (Monsters monster : roomMonsters) {
+        if (monster.getHealth() > 0) {
+          System.out.println(monster.toStringMonsterType() + " attacked player!");
+          player.damagePlayer(monster.getWeapon().getDamage());
+          System.out.println("Player health after attack: " + player.getPlayerHealth());
+        }
+        else {
+          System.out.println(monster.toStringMonsterType() + "'s health is less than 1, so it can't attack");
+        }
       }
     }
+    else {
+      System.out.println("There are no monsters in this room to attack the player");
+    }
+    System.out.println();
   }
 
   public static void interactWithRoom(Room room, Player player, Scanner scnr) {
+    // TODO: Assumes user will input a valid index
     int userChoice = 0;
-    while (userChoice != 11) {
+    while (userChoice != 12) {
       System.out.println("\nPlease type in a room interaction option from the list below:\n" + 
                            "0) Examine monster [index]\n" + 
                            "1) Examine weapon [index]\n" +
@@ -334,7 +338,7 @@ public class DungeonGen {
                            "8) Use from weapon inventory [index]\n" +
                            "9) Use from potion inventory [index]\n" + 
                            "10) Attack [index]\n" +
-                           "10) See currently equipped weapon\n" + 
+                           "11) See currently equipped weapon\n" + 
                            "12) Return");
       userChoice = scnr.nextInt();
 
@@ -358,12 +362,14 @@ public class DungeonGen {
         userChoice = scnr.nextInt();
         player.addWeaponToInventory(room.getWeaponsInRoom().get(userChoice));
         System.out.println("Added " + room.getWeaponsInRoom().get(userChoice).toStringWeaponInfo() + " to weapons inventory");
+        monstersInRoomAttackPlayer(room.getMonstersInRoom(), player);
       }
       else if (userChoice == 4) {
         System.out.println("\nWhich potion do you want to take? (Enter the index): ");
         userChoice = scnr.nextInt();
         player.addPotionToInventory(room.getPotionsInRoom().get(userChoice));
         System.out.println("Added " + room.getPotionsInRoom().get(userChoice).toStringPotionInfo() + " to potions inventory");
+        monstersInRoomAttackPlayer(room.getMonstersInRoom(), player);
       }
       else if (userChoice == 5) {
         System.out.println("\nWhich weapon inventory item do you want to know more about? (Enter the index): ");
@@ -396,6 +402,7 @@ public class DungeonGen {
         userChoice = scnr.nextInt();
         player.setEquippedWeapon(player.getWeaponsInvetory().get(userChoice));
         System.out.println(player.getEquippedWeapon().toStringWeaponType());
+        monstersInRoomAttackPlayer(room.getMonstersInRoom(), player);
       }
       else if (userChoice == 9) {
         System.out.println("\nWhich potion inventory item do you want to use? (Enter the index): ");
@@ -414,6 +421,7 @@ public class DungeonGen {
           potionSelected.decrementUse();
           System.out.println("Weapon durability after repairing: " + player.getEquippedWeapon().getDurability());
         }
+        monstersInRoomAttackPlayer(room.getMonstersInRoom(), player);
       }
       else if (userChoice == 10) {
         System.out.println("\nWhich monster do you want to attack? (Enter the index: )");
@@ -437,6 +445,7 @@ public class DungeonGen {
             System.out.println("Player's weapon broken");
           }
         }
+        monstersInRoomAttackPlayer(room.getMonstersInRoom(), player);
       }
       else if (userChoice == 11) {
         System.out.println("\nCurrently equipped weapon: " + player.getEquippedWeapon().toStringWeaponInfo());
@@ -474,6 +483,7 @@ public class DungeonGen {
         else if (dungeon.getRoom(playerRowPosition - 1, playerColumnPosition).toString().equals("\u2B1C")) {
           player.setPosition(playerRowPosition - 1, playerColumnPosition);
           printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
         }
         else {
           System.out.println("Move failed");
@@ -486,6 +496,7 @@ public class DungeonGen {
         else if (dungeon.getRoom(playerRowPosition + 1, playerColumnPosition).toString().equals("\u2B1C")) {
           player.setPosition(playerRowPosition + 1, playerColumnPosition);
           printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
         }
         else {
           System.out.println("Move failed");
@@ -498,6 +509,7 @@ public class DungeonGen {
         else if (dungeon.getRoom(playerRowPosition, playerColumnPosition + 1).toString().equals("\u2B1C")) {
           player.setPosition(playerRowPosition, playerColumnPosition + 1);
           printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
         }
         else {
           System.out.println("Move failed");
@@ -510,6 +522,7 @@ public class DungeonGen {
         else if (dungeon.getRoom(playerRowPosition, playerColumnPosition - 1).toString().equals("\u2B1C")) {
           player.setPosition(playerRowPosition, playerColumnPosition - 1);
           printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
         }
         else {
           System.out.println("Move failed");

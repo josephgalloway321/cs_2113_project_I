@@ -19,6 +19,12 @@ public class Weapons {
     setDurability();
   }
 
+  public Weapons(String weaponType) {
+    this.weaponType = weaponType;
+    setDamage();
+    setDurability();
+  }
+
   public Weapons(String weaponType, int damage, int durability) {
     this.damage = damage;
     this.durability = durability;

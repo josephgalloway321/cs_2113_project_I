@@ -9,20 +9,21 @@ public class Monsters {
   private String monsterType;
   private int health;
   private String weaponType;
-  private Weapons equippedWeapon;  // TODO: Figure this out
+  private Weapons equippedWeapon;
 
   Random rand = new Random();
 
   public Monsters() {
     setMonsterType();
     setHealth();
-    setWeaponType();
+    setWeaponType();  // Weapon also equipped in this method
   }
 
   public Monsters(String monsterType, int health, String weaponType) {
     this.monsterType = monsterType;
     this.health = health;
     this.weaponType = weaponType;
+    equippedWeapon = new Weapons(this.weaponType);
   }
 
   private void setMonsterType() {
@@ -60,6 +61,7 @@ public class Monsters {
       while ((readLine = bf.readLine()) != null) {
         if (lineCounter == randValueToChooseWeapon) {
           this.weaponType = readLine;
+          equippedWeapon = new Weapons(this.weaponType);
         }
         lineCounter++;
       }
