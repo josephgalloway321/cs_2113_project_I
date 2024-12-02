@@ -9,6 +9,7 @@ public class Weapons {
   private int damage;
   private int durability;
   private String weaponType;
+  private boolean isWeaponBroken;
 
   Random rand = new Random();
 
@@ -22,6 +23,7 @@ public class Weapons {
     this.damage = damage;
     this.durability = durability;
     this.weaponType = weaponType;
+    this.isWeaponBroken = false;
   }
 
   private void setWeaponType() {
@@ -51,6 +53,31 @@ public class Weapons {
 
   private void setDurability() {
     this.durability = rand.nextInt(21) + 10;  // Values between 10 and 30, inclusive
+  }
+
+  public boolean getIsWeaponBroken() {
+    return this.isWeaponBroken;
+  }
+
+  public int getDamage() {
+    return this.damage;
+  }
+
+  public void repairWeapon(int repairValue) {
+    this.durability += repairValue;
+  }
+
+  public void decrementDurability() {
+    this.durability--;
+
+    if (this.durability <= 0) {
+      this.durability = 0;
+      this.isWeaponBroken = true;
+    }
+  }
+
+  public int getDurability() {
+    return this.durability;
   }
 
   public String toStringWeaponType() {

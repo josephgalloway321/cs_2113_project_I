@@ -314,77 +314,119 @@ public class DungeonGen {
                            "7) Inventory\n" + 
                            "8) Use from weapon inventory [index]\n" +
                            "9) Use from potion inventory [index]\n" + 
-                           "10) Attack [index]\n" + 
-                           "11) Return");
+                           "10) Attack [index]\n" +
+                           "10) See currently equipped weapon\n" + 
+                           "12) Return");
       userChoice = scnr.nextInt();
 
       if (userChoice == 0) {
-        System.out.println("Which monster do you want to examine? (Enter the index): ");
+        System.out.println("\nWhich monster do you want to examine? (Enter the index): ");
         userChoice = scnr.nextInt();
         System.out.println(room.getMonstersInRoom().get(userChoice).toStringMonsterInfo());
       }
       else if (userChoice == 1) {
-        System.out.println("Which weapon do you want to examine? (Enter the index): ");
+        System.out.println("\nWhich weapon do you want to examine? (Enter the index): ");
         userChoice = scnr.nextInt();
         System.out.println(room.getWeaponsInRoom().get(userChoice).toStringWeaponInfo());
       }
       else if (userChoice == 2) {
-        System.out.println("Which potion do you want to examine? (Enter the index): ");
+        System.out.println("\nWhich potion do you want to examine? (Enter the index): ");
         userChoice = scnr.nextInt();
         System.out.println(room.getPotionsInRoom().get(userChoice).toStringPotionInfo());
       }
       else if (userChoice == 3) {
-        System.out.println("Which weapon do you want to take? (Enter the index): ");
+        System.out.println("\nWhich weapon do you want to take? (Enter the index): ");
         userChoice = scnr.nextInt();
         player.addWeaponToInventory(room.getWeaponsInRoom().get(userChoice));
         System.out.println("Added " + room.getWeaponsInRoom().get(userChoice).toStringWeaponInfo() + " to weapons inventory");
       }
       else if (userChoice == 4) {
-        //TODO: Complete option
-        System.out.println("Which potion do you want to take? (Enter the index): ");
+        System.out.println("\nWhich potion do you want to take? (Enter the index): ");
         userChoice = scnr.nextInt();
         player.addPotionToInventory(room.getPotionsInRoom().get(userChoice));
         System.out.println("Added " + room.getPotionsInRoom().get(userChoice).toStringPotionInfo() + " to potions inventory");
       }
       else if (userChoice == 5) {
-        //TODO: Complete option
-        System.out.println("Which weapon inventory item do you want to know more about? (Enter the index): ");
+        System.out.println("\nWhich weapon inventory item do you want to know more about? (Enter the index): ");
         userChoice = scnr.nextInt();
-
+        System.out.println(player.getWeaponsInvetory().get(userChoice).toStringWeaponInfo());
       }
       else if (userChoice == 6) {
-        //TODO: Complete option
-        System.out.println("Which potion inventory item do you want to know more about? (Enter the index): ");
+        System.out.println("\nWhich potion inventory item do you want to know more about? (Enter the index): ");
         userChoice = scnr.nextInt();
-
+        System.out.println(player.getPotionsInvetory().get(userChoice).toStringPotionInfo());
       }
       else if (userChoice == 7) {
-        //TODO: Complete option
-        System.out.println("Printing current inventory...");
+        System.out.println("\nPrinting current inventory...");
+        ArrayList<Weapons> currentRoomWeapons = room.getWeaponsInRoom();
+        ArrayList<Potions> currentRoomPotions = room.getPotionsInRoom();
+
+        for (int i = 0; i < currentRoomWeapons.size(); i++) {
+          System.out.print(currentRoomWeapons.get(i).toStringWeaponType() + " " + i);
+        }
+        System.out.println();
+
+        for (int i = 0; i < currentRoomPotions.size(); i++) {
+          System.out.print(currentRoomPotions.get(i).toStringPotionType() + " " + i);
+        }
+        System.out.println();
+
       }
       else if (userChoice == 8) {
-        //TODO: Complete option
-        System.out.println("Which weapon inventory item do you want to use? (Enter the index): ");
+        System.out.println("\nWhich weapon inventory item do you want to use? (Enter the index): ");
         userChoice = scnr.nextInt();
-
+        player.setEquippedWeapon(player.getWeaponsInvetory().get(userChoice));
+        System.out.println(player.getEquippedWeapon().toStringWeaponType());
       }
       else if (userChoice == 9) {
-        //TODO: Complete option
-        System.out.println("Which potion inventory item do you want to use? (Enter the index): ");
+        System.out.println("\nWhich potion inventory item do you want to use? (Enter the index): ");
         userChoice = scnr.nextInt();
+        Potions potionSelected = player.getPotionsInvetory().get(userChoice);
 
+        if (potionSelected.getEffectType().equals("Healing")) {
+          System.out.println("Player health: " + player.getPlayerHealth());
+          player.healPlayer(potionSelected.getPower());
+          potionSelected.decrementUse();
+          System.out.println("Player health after healing: " + player.getPlayerHealth());
+        }
+        else if (potionSelected.getEffectType().equals("Repairing")) {
+          System.out.println("Weapon durability: " + player.getEquippedWeapon().getDurability());
+          player.getEquippedWeapon().repairWeapon(potionSelected.getPower());
+          potionSelected.decrementUse();
+          System.out.println("Weapon durability after repairing: " + player.getEquippedWeapon().getDurability());
+        }
       }
       else if (userChoice == 10) {
-        //TODO: Complete option
-        System.out.println("Which monster do you want to attack? (Enter the index: )");
+        System.out.println("\nWhich monster do you want to attack? (Enter the index: )");
         userChoice = scnr.nextInt();
+        Monsters selectedMonster = room.getMonstersInRoom().get(userChoice);
+        Weapons equippedWeapon = player.getEquippedWeapon();
 
+        if (equippedWeapon == null) {
+          System.out.println("Monster health: " + selectedMonster.getHealth());
+          selectedMonster.damageMonster(1);
+          System.out.println("Monster health after open hand slap from player: " + selectedMonster.getHealth());
+        }
+        else {
+          System.out.println("Monster health: " + selectedMonster.getHealth());
+          selectedMonster.damageMonster(equippedWeapon.getDamage());
+          equippedWeapon.decrementDurability();
+          System.out.println(selectedMonster.toStringMonsterType() + " dealt " + equippedWeapon.getDamage() + " damage");
+          System.out.println("Monster health: " + selectedMonster.getHealth());
+          if (equippedWeapon.getIsWeaponBroken()) {
+            player.dequipWeapon();
+            System.out.println("Player's weapon broken");
+          }
+        }
       }
       else if (userChoice == 11) {
-        System.out.println("Returning to main menu...");
+        System.out.println("\nCurrently equipped weapon: " + player.getEquippedWeapon().toStringWeaponInfo());
+      }
+      else if (userChoice == 12) {
+        System.out.println("\nReturning to main menu...");
       }
       else {
-        System.out.println("Please choose a valid option");
+        System.out.println("\nPlease choose a valid option");
       }
     }
   }

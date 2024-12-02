@@ -40,6 +40,20 @@ public class Potions {
     this.power = rand.nextInt(10) + 1;  // Values between 1 and 10, inclusive
   }
 
+  public String getEffectType() {
+    return this.effectType;
+  }
+
+  public int getPower() {
+    return this.power;
+  }
+
+  public void decrementUse() {
+    if (this.uses != 0) {
+      this.uses--;
+    }
+  }
+
   public String toStringPotionType() {
     return "Potion of " + this.effectType;
   }

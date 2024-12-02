@@ -70,6 +70,14 @@ public class Monsters {
     }
   }
 
+  public void damageMonster(int damageValue) {
+    this.health -= damageValue;
+  }
+
+  public int getHealth() {
+    return this.health;
+  }
+
   public String toStringMonsterType() {
     return this.monsterType;
   }
