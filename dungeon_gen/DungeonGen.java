@@ -300,6 +300,25 @@ public class DungeonGen {
     }
   }
 
+  public static void monstersInRoomAttackPlayer(ArrayList<Monsters> roomMonsters, Player player) {
+    // TODO: Complete method
+    // TODO: Assign this method to appropriate options in interaction menu
+    // TODO: Fix monsters' weapons
+    System.out.println("\nThe monsters in this room have attacked!");
+    System.out.println("Player health: " + player.getPlayerHealth());
+
+    for (Monsters monster : roomMonsters) {
+      if (monster.getHealth() > 0) {
+        System.out.println(monster.toStringMonsterType() + " attacked!");
+        //player.damagePlayer(monster.getWeapon().getDamage());
+        System.out.println("Player health after attack: " + player.getPlayerHealth());
+      }
+      else {
+        System.out.println(monster.toStringMonsterType() + "'s health is less than 1, so it can't attack");
+      }
+    }
+  }
+
   public static void interactWithRoom(Room room, Player player, Scanner scnr) {
     int userChoice = 0;
     while (userChoice != 11) {

@@ -9,6 +9,7 @@ public class Monsters {
   private String monsterType;
   private int health;
   private String weaponType;
+  private Weapons equippedWeapon;  // TODO: Figure this out
 
   Random rand = new Random();
 
@@ -76,6 +77,10 @@ public class Monsters {
 
   public int getHealth() {
     return this.health;
+  }
+
+  public Weapons getWeapon() {
+    return this.equippedWeapon;
   }
 
   public String toStringMonsterType() {
