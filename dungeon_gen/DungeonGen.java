@@ -467,6 +467,9 @@ public class DungeonGen {
     setPlayerInitialPosition(dungeon, player);
     printDungeonWithPlayer(dungeon, player);
 
+    // TODO: Change input to nextLine
+    // TODO: Change options to the following: (Move, Interact, Escape)
+    // TODO: Create separate method for moving similar to room interaction method
     while (userChoice != 'q') {
       System.out.println("\nEnter one of the following characters:\n" +
                         "- Move player (n, s, e, or w)\n" + 

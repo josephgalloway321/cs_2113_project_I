@@ -10,6 +10,7 @@ public class Player {
   private int rowPosition;
   private int columnPosition;
   private int health;
+  private int numMonstersDefeated;
 
   public Player() {
     weaponsInventory = new ArrayList<Weapons>();
