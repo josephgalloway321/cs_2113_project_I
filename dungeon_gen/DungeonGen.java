@@ -296,6 +296,7 @@ public class DungeonGen {
       if (room.toString().equals("\u2B1C")) {
         isRoomWall = false;
         player.setPosition(randRow, randCol);
+        player.setStartingPosition(randRow, randCol);
       }
     }
   }
@@ -320,6 +321,76 @@ public class DungeonGen {
       System.out.println("There are no monsters in this room to attack the player");
     }
     System.out.println();
+  }
+
+  public static void movePlayerAroundDungeon(DungeonGen dungeon, Player player, Scanner scnr) {
+    int playerRowPosition = player.getRowPosition();
+    int playerColumnPosition = player.getColumnPosition();
+    char userChoice = ' ';
+
+    while (userChoice != 'q') {
+      System.out.println("\nChoose a direction (n, s, e, w) or q to quit navigation:\n");
+      userChoice = scnr.next().charAt(0);
+
+      if (userChoice == 'n' || userChoice == 'N') {
+        if (player.getRowPosition() == 0) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition - 1, playerColumnPosition).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition - 1, playerColumnPosition);
+          printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
+        }
+        else {
+          System.out.println("Move failed");
+        }
+      }
+      else if (userChoice == 's' || userChoice == 'S') {
+        if (player.getRowPosition() == 9) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition + 1, playerColumnPosition).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition + 1, playerColumnPosition);
+          printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
+        }
+        else {
+          System.out.println("Move failed");
+        }
+      }
+      else if (userChoice == 'e' || userChoice == 'E') {
+        if (player.getColumnPosition() == 9) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition, playerColumnPosition + 1).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition, playerColumnPosition + 1);
+          printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
+        }
+        else {
+          System.out.println("Move failed");
+        }
+      }
+      else if (userChoice == 'w' || userChoice == 'W') {
+        if (player.getColumnPosition() == 0) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition, playerColumnPosition - 1).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition, playerColumnPosition - 1);
+          printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
+        }
+        else {
+          System.out.println("Move failed");
+        }
+      }
+      else if (userChoice == 'q' || userChoice == 'Q') {
+        System.out.println("Ending game...\n");
+      }
+      else {
+        System.out.println("Please choose a valid option!");
+      }
+    }
   }
 
   public static void interactWithRoom(Room room, Player player, Scanner scnr) {
@@ -445,6 +516,13 @@ public class DungeonGen {
             System.out.println("Player's weapon broken");
           }
         }
+
+        if (selectedMonster.getHealth() < 1) {
+          System.out.println(selectedMonster.toStringMonsterType() + " has been defeated!");
+          selectedMonster.setIsMonsterDead(true);
+          player.incrementNumMonstersDefeated();
+        }
+
         monstersInRoomAttackPlayer(room.getMonstersInRoom(), player);
       }
       else if (userChoice == 11) {
@@ -459,83 +537,77 @@ public class DungeonGen {
     }
   }
 
+  public static boolean isPlayerDead(int playerHealth) {
+    if (playerHealth < 1) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  public static void escapeDungeon(Player player, Scanner scnr, boolean continueGame) {
+    char userConfirmation = ' ';
+    int playerRowPosition = player.getRowPosition();
+    int playerColumnPosition = player.getColumnPosition();
+    int playerStartingRowPosition = player.getStartingRowPosition();
+    int playerStartingColumnPosition = player.getStartingColumnPosition();
+
+    while (userConfirmation != 'n' ||userConfirmation != 'y' || userConfirmation != 'N' ||userConfirmation != 'Y') {
+      System.out.println("In order to win, you must return to your starting point then type escape.\nIf you don't then you automatically lose.");
+      
+      System.out.println("Are you sure you want to escape and end the game (y/n)?");
+      userConfirmation = scnr.next().charAt(0);
+      if (userConfirmation == 'y' || userConfirmation == 'Y') {
+        System.out.println("\nExiting game...");
+        continueGame = false;
+
+        // If the player escaped at the starting point...
+        if (playerRowPosition == playerStartingRowPosition && playerColumnPosition == playerStartingColumnPosition) {
+          System.out.println("You successfully escaped!");
+          System.out.println("Number of monsters defeated: " + player.getNumMonstersDefeated());
+        }
+        else {
+          System.out.println("You lost...");
+        }
+      }
+      else if (userConfirmation == 'n' || userConfirmation == 'N') {
+        System.out.println("\nReturning to game...");
+      }
+    }
+  }
+
   public static void beginGame(DungeonGen dungeon, Scanner scnr) {
     Player player = new Player();
-    char userChoice = ' ';
+    String userChoice = "";
+    boolean continueGame = true;
 
     System.out.println("Beginning game...\n");
     setPlayerInitialPosition(dungeon, player);
     printDungeonWithPlayer(dungeon, player);
 
-    // TODO: Change input to nextLine
-    // TODO: Change options to the following: (Move, Interact, Escape)
-    // TODO: Create separate method for moving similar to room interaction method
-    while (userChoice != 'q') {
-      System.out.println("\nEnter one of the following characters:\n" +
-                        "- Move player (n, s, e, or w)\n" + 
-                        "- Interact with room (i)\n" +
-                        "- Quit game (q)");
-      userChoice = scnr.next().charAt(0);
+    while (continueGame) {
+      if (isPlayerDead(player.getPlayerHealth())) {
+        System.out.println("\nYou died! Exiting game...");
+        break;
+      }
+
+      System.out.println("\nEnter one of the following:\n" +
+                        "- move\n" + 
+                        "- interact\n" +
+                        "- escape");
+      userChoice = scnr.next();
       int playerRowPosition = player.getRowPosition();
       int playerColumnPosition = player.getColumnPosition();
       
-      if (userChoice == 'n' || userChoice == 'N') {
-        if (player.getRowPosition() == 0) {
-          System.out.println("Move failed");
-        }
-        else if (dungeon.getRoom(playerRowPosition - 1, playerColumnPosition).toString().equals("\u2B1C")) {
-          player.setPosition(playerRowPosition - 1, playerColumnPosition);
-          printDungeonWithPlayer(dungeon, player);
-          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
-        }
-        else {
-          System.out.println("Move failed");
-        }
+      if (userChoice.equals("move") || userChoice.equals("Move")) {
+        movePlayerAroundDungeon(dungeon, player, scnr);
       }
-      else if (userChoice == 's' || userChoice == 'S') {
-        if (player.getRowPosition() == 9) {
-          System.out.println("Move failed");
-        }
-        else if (dungeon.getRoom(playerRowPosition + 1, playerColumnPosition).toString().equals("\u2B1C")) {
-          player.setPosition(playerRowPosition + 1, playerColumnPosition);
-          printDungeonWithPlayer(dungeon, player);
-          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
-        }
-        else {
-          System.out.println("Move failed");
-        }
-      }
-      else if (userChoice == 'e' || userChoice == 'E') {
-        if (player.getColumnPosition() == 9) {
-          System.out.println("Move failed");
-        }
-        else if (dungeon.getRoom(playerRowPosition, playerColumnPosition + 1).toString().equals("\u2B1C")) {
-          player.setPosition(playerRowPosition, playerColumnPosition + 1);
-          printDungeonWithPlayer(dungeon, player);
-          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
-        }
-        else {
-          System.out.println("Move failed");
-        }
-      }
-      else if (userChoice == 'w' || userChoice == 'W') {
-        if (player.getColumnPosition() == 0) {
-          System.out.println("Move failed");
-        }
-        else if (dungeon.getRoom(playerRowPosition, playerColumnPosition - 1).toString().equals("\u2B1C")) {
-          player.setPosition(playerRowPosition, playerColumnPosition - 1);
-          printDungeonWithPlayer(dungeon, player);
-          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
-        }
-        else {
-          System.out.println("Move failed");
-        }
-      }
-      else if (userChoice == 'q' || userChoice == 'Q') {
-        System.out.println("Ending game...\n");
-      }
-      else if (userChoice == 'i' || userChoice == 'I') {
+      else if (userChoice.equals("interact") || userChoice.equals("Interact")) {
         interactWithRoom(dungeon.getRoom(playerRowPosition, playerColumnPosition), player, scnr);
+      }
+      else if (userChoice.equals("escape") || userChoice.equals("Escape")) {
+        escapeDungeon(player, scnr, continueGame);
       }
       else {
         System.out.println("Please choose a valid option!");

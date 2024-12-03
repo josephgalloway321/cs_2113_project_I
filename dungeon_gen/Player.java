@@ -11,7 +11,9 @@ public class Player {
   private int columnPosition;
   private int health;
   private int numMonstersDefeated;
-
+  private int startingRowPosition;
+  private int startingColumnPosition;
+  
   public Player() {
     weaponsInventory = new ArrayList<Weapons>();
     potionsInventory = new ArrayList<Potions>();
@@ -39,6 +41,27 @@ public class Player {
 
   public int getColumnPosition() {
     return this.columnPosition;
+  }
+
+  public void setStartingPosition(int row, int col) {
+    this.startingRowPosition = row;
+    this.startingColumnPosition = col;
+  }
+
+  public int getStartingRowPosition() {
+    return this.startingRowPosition;
+  }
+
+  public int getStartingColumnPosition() {
+    return this.startingColumnPosition;
+  }
+
+  public int getNumMonstersDefeated() {
+    return this.numMonstersDefeated;
+  }
+
+  public void incrementNumMonstersDefeated() {
+    this.numMonstersDefeated++;
   }
 
   public Weapons getEquippedWeapon() {

@@ -10,20 +10,31 @@ public class Monsters {
   private int health;
   private String weaponType;
   private Weapons equippedWeapon;
+  private Boolean isMonsterDead;
 
   Random rand = new Random();
 
   public Monsters() {
+    this.isMonsterDead = false;
     setMonsterType();
     setHealth();
     setWeaponType();  // Weapon also equipped in this method
   }
 
   public Monsters(String monsterType, int health, String weaponType) {
+    this.isMonsterDead = false;
     this.monsterType = monsterType;
     this.health = health;
     this.weaponType = weaponType;
     equippedWeapon = new Weapons(this.weaponType);
+  }
+
+  public boolean getIsMonsterDead() {
+    return this.isMonsterDead;
+  }
+
+  public void setIsMonsterDead(boolean isMonsterDead) {
+    this.isMonsterDead = isMonsterDead;
   }
 
   private void setMonsterType() {
