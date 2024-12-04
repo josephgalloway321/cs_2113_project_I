@@ -9,85 +9,85 @@
 🦆
 🦆
 🦆
-⬜_!WeaponType!Hand Axe!Damage!1!Durability!27_!EffectType!Healing!Power!3!Uses!5_!MonsterType!Elf!Health!15!WeaponForMonster!Naginata
-⬜_!WeaponType!Club!Damage!5!Durability!13_!EffectType!Healing!Power!3!Uses!8_!EffectType!Healing!Power!3!Uses!4_!MonsterType!Vampire!Health!18!WeaponForMonster!Brass Knuckles
-⬜_!WeaponType!Bowie Knife!Damage!8!Durability!29_!EffectType!Repairing!Power!2!Uses!7
-⬜_!MonsterType!Fire Elemental!Health!18!WeaponForMonster!Sai_!MonsterType!Water Elemental!Health!13!WeaponForMonster!Battle Axe_!MonsterType!Water Elemental!Health!11!WeaponForMonster!Longsword
+⬜_!WeaponType!Kunai!Damage!9!Durability!19_!MonsterType!Chimera!Health!15!WeaponForMonster!Tomahawk
+⬜_!EffectType!Healing!Power!8!Uses!8_!EffectType!Repairing!Power!2!Uses!7_!MonsterType!Cyclops!Health!18!WeaponForMonster!Cestus_!MonsterType!Air Elemental!Health!18!WeaponForMonster!Glaive
+⬜_!MonsterType!Cyclops!Health!12!WeaponForMonster!Stiletto_!MonsterType!Basilisk!Health!19!WeaponForMonster!Club
+🦆
+⬜_!WeaponType!Brass Knuckles!Damage!1!Durability!16
+⬜_!WeaponType!Hand-to-Hand!Damage!9!Durability!22_!EffectType!Healing!Power!6!Uses!5_!EffectType!Healing!Power!4!Uses!4_!MonsterType!Minotaur!Health!18!WeaponForMonster!Warhammer_!MonsterType!Basilisk!Health!10!WeaponForMonster!Mace
+⬜_!EffectType!Repairing!Power!7!Uses!2_!MonsterType!Water Elemental!Health!16!WeaponForMonster!Polearms
+⬜_!EffectType!Healing!Power!5!Uses!9_!MonsterType!Wraith!Health!16!WeaponForMonster!Naginata_!MonsterType!Fire Elemental!Health!20!WeaponForMonster!Halberd_!MonsterType!Goblin!Health!17!WeaponForMonster!Katana
+🦆
+🦆
+⬜_!WeaponType!Naginata!Damage!2!Durability!24_!WeaponType!Sai!Damage!10!Durability!12_!EffectType!Repairing!Power!3!Uses!2_!MonsterType!Hydra!Health!11!WeaponForMonster!Quarterstaff
+⬜_!EffectType!Healing!Power!9!Uses!8_!MonsterType!Vampire!Health!20!WeaponForMonster!Sai_!MonsterType!Zombie!Health!20!WeaponForMonster!Chakram
+⬜_!WeaponType!Tomahawk!Damage!9!Durability!12_!EffectType!Repairing!Power!7!Uses!5_!EffectType!Healing!Power!8!Uses!7_!MonsterType!Ghost!Health!10!WeaponForMonster!Club_!MonsterType!Dragon!Health!14!WeaponForMonster!War Axe_!MonsterType!Satyr!Health!15!WeaponForMonster!Broadsword
+🦆
+⬜_!MonsterType!Elf!Health!17!WeaponForMonster!Trident
+⬜_!WeaponType!Scythe!Damage!9!Durability!15_!WeaponType!Halberd!Damage!1!Durability!15_!MonsterType!Orc!Health!10!WeaponForMonster!Dagger
+⬜_!MonsterType!Demon!Health!14!WeaponForMonster!Chakram_!MonsterType!Cyclops!Health!18!WeaponForMonster!Double-headed Axe
+⬜_!WeaponType!Dirk!Damage!8!Durability!19
+⬜_!MonsterType!Demon!Health!14!WeaponForMonster!Chakram_!MonsterType!Cyclops!Health!18!WeaponForMonster!Double-headed Axe
+🦆
+⬜_!MonsterType!Demon!Health!14!WeaponForMonster!Chakram_!MonsterType!Cyclops!Health!18!WeaponForMonster!Double-headed Axe
+⬜_!WeaponType!Kunai!Damage!4!Durability!29_!EffectType!Healing!Power!5!Uses!6_!MonsterType!Dragon!Health!14!WeaponForMonster!Throwing Knife_!MonsterType!Lich!Health!11!WeaponForMonster!Brass Knuckles_!MonsterType!Goblin!Health!18!WeaponForMonster!Warhammer
 ⬜
-⬜_!WeaponType!Trident!Damage!8!Durability!27_!WeaponType!Throwing Knife!Damage!3!Durability!19_!EffectType!Repairing!Power!8!Uses!10_!MonsterType!Air Elemental!Health!15!WeaponForMonster!War Axe_!MonsterType!Ogre!Health!20!WeaponForMonster!Flail
-⬜_!MonsterType!Wraith!Health!12!WeaponForMonster!Double-headed Axe_!MonsterType!Banshee!Health!20!WeaponForMonster!Broadsword
-⬜_!WeaponType!Rapier!Damage!8!Durability!16_!EffectType!Repairing!Power!6!Uses!6
+⬜_!EffectType!Healing!Power!10!Uses!4_!EffectType!Repairing!Power!5!Uses!9_!MonsterType!Pegasus!Health!20!WeaponForMonster!Flail
+⬜_!WeaponType!Broadsword!Damage!3!Durability!20_!EffectType!Healing!Power!9!Uses!2_!MonsterType!Dryad!Health!15!WeaponForMonster!Pike_!MonsterType!Lich!Health!14!WeaponForMonster!Warhammer
+⬜_!WeaponType!Spear!Damage!7!Durability!28_!EffectType!Healing!Power!1!Uses!6
+⬜_!WeaponType!Mace!Damage!3!Durability!25_!EffectType!Healing!Power!4!Uses!10_!EffectType!Repairing!Power!6!Uses!10_!MonsterType!Troll!Health!17!WeaponForMonster!Nunchaku_!MonsterType!Dragon!Health!10!WeaponForMonster!Bowie Knife
+⬜_!WeaponType!Sickle!Damage!7!Durability!14_!WeaponType!Hand-to-Hand!Damage!8!Durability!24_!MonsterType!Pegasus!Health!19!WeaponForMonster!Throwing Knife
 🦆
 🦆
+⬜_!WeaponType!Mace!Damage!6!Durability!20_!EffectType!Repairing!Power!5!Uses!6_!MonsterType!Mermaid!Health!16!WeaponForMonster!Halberd
+⬜_!MonsterType!Banshee!Health!12!WeaponForMonster!Spear
+⬜_!EffectType!Repairing!Power!7!Uses!10_!MonsterType!Elf!Health!13!WeaponForMonster!Scepter
+⬜_!MonsterType!Succubus!Health!20!WeaponForMonster!Scimitar_!MonsterType!Griffin!Health!16!WeaponForMonster!Brass Knuckles
+⬜_!WeaponType!Double-headed Axe!Damage!6!Durability!17_!WeaponType!Mace!Damage!5!Durability!25_!EffectType!Healing!Power!7!Uses!9_!MonsterType!Earth Elemental!Health!17!WeaponForMonster!Scepter_!MonsterType!Kraken!Health!19!WeaponForMonster!Falchion_!MonsterType!Shadow!Health!16!WeaponForMonster!Nunchaku
+⬜_!WeaponType!Kunai!Damage!2!Durability!22_!MonsterType!Fairy!Health!10!WeaponForMonster!Club
+⬜_!WeaponType!Polearms!Damage!7!Durability!30_!WeaponType!Club!Damage!3!Durability!26_!WeaponType!Tomahawk!Damage!5!Durability!29_!MonsterType!Banshee!Health!14!WeaponForMonster!Kunai
 ⬜
-⬜_!EffectType!Healing!Power!8!Uses!4_!MonsterType!Air Elemental!Health!15!WeaponForMonster!Naginata_!MonsterType!Fire Elemental!Health!14!WeaponForMonster!Double-headed Axe_!MonsterType!Vampire!Health!10!WeaponForMonster!Tomahawk
-⬜_!WeaponType!Kunai!Damage!8!Durability!27_!EffectType!Healing!Power!10!Uses!9_!MonsterType!Chimera!Health!17!WeaponForMonster!Halberd
+🦆
+🦆
+⬜_!MonsterType!Demon!Health!14!WeaponForMonster!Chakram_!MonsterType!Cyclops!Health!18!WeaponForMonster!Double-headed Axe
+⬜_!EffectType!Repairing!Power!8!Uses!9_!EffectType!Healing!Power!5!Uses!8_!EffectType!Repairing!Power!6!Uses!1_!MonsterType!Demon!Health!10!WeaponForMonster!Cestus_!MonsterType!Dryad!Health!16!WeaponForMonster!Quarterstaff
+⬜_!EffectType!Repairing!Power!5!Uses!7_!MonsterType!Zombie!Health!10!WeaponForMonster!Hand-to-Hand_!MonsterType!Fairy!Health!18!WeaponForMonster!Battle Axe
+🦆
+⬜_!WeaponType!Hand Axe!Damage!6!Durability!19
+⬜_!EffectType!Healing!Power!4!Uses!5_!MonsterType!Hellhound!Health!19!WeaponForMonster!Hand Axe_!MonsterType!Unicorn!Health!13!WeaponForMonster!War Axe
+⬜_!WeaponType!Trident!Damage!2!Durability!12
+⬜_!WeaponType!Trident!Damage!2!Durability!12
+⬜_!WeaponType!Trident!Damage!2!Durability!12
+🦆
+⬜_!WeaponType!Longsword!Damage!3!Durability!11_!MonsterType!Basilisk!Health!10!WeaponForMonster!Glaive
+⬜_!WeaponType!Sai!Damage!7!Durability!10_!WeaponType!Battle Axe!Damage!5!Durability!15_!MonsterType!Water Elemental!Health!15!WeaponForMonster!Tomahawk_!MonsterType!Sphinx!Health!14!WeaponForMonster!Throwing Knife
+⬜_!WeaponType!Stiletto!Damage!9!Durability!13_!MonsterType!Fire Elemental!Health!19!WeaponForMonster!Morning Star_!MonsterType!Ice Elemental!Health!20!WeaponForMonster!Hand-to-Hand_!MonsterType!Goblin!Health!18!WeaponForMonster!Nunchaku
+⬜_!WeaponType!Short sword!Damage!10!Durability!11_!WeaponType!Longsword!Damage!6!Durability!21_!EffectType!Healing!Power!6!Uses!4
+⬜_!EffectType!Healing!Power!2!Uses!2_!EffectType!Repairing!Power!5!Uses!4
+⬜_!EffectType!Repairing!Power!8!Uses!9_!MonsterType!Hellhound!Health!13!WeaponForMonster!Bowie Knife_!MonsterType!Fire Elemental!Health!10!WeaponForMonster!Club_!MonsterType!Zombie!Health!11!WeaponForMonster!Brass Knuckles
+⬜_!WeaponType!Double-headed Axe!Damage!5!Durability!13_!MonsterType!Lich!Health!10!WeaponForMonster!Double-headed Axe_!MonsterType!Pegasus!Health!11!WeaponForMonster!Tomahawk
+⬜_!WeaponType!Double-headed Axe!Damage!2!Durability!10_!WeaponType!Scepter!Damage!10!Durability!17_!EffectType!Repairing!Power!7!Uses!9
+🦆
+🦆
+⬜_!MonsterType!Dryad!Health!15!WeaponForMonster!Stiletto
+⬜_!MonsterType!Zombie!Health!13!WeaponForMonster!Quarterstaff_!MonsterType!Griffin!Health!13!WeaponForMonster!Claymore_!MonsterType!Cerberus!Health!18!WeaponForMonster!Short sword
+⬜_!EffectType!Repairing!Power!5!Uses!5_!EffectType!Healing!Power!4!Uses!1_!EffectType!Repairing!Power!10!Uses!8_!MonsterType!Minotaur!Health!16!WeaponForMonster!War Axe_!MonsterType!Orc!Health!17!WeaponForMonster!Halberd_!MonsterType!Lich!Health!11!WeaponForMonster!Double-headed Axe
 ⬜
-⬜_!WeaponType!Scythe!Damage!9!Durability!29_!WeaponType!Sai!Damage!2!Durability!30_!EffectType!Repairing!Power!5!Uses!7
-⬜_!WeaponType!Chakram!Damage!8!Durability!13_!MonsterType!Nymph!Health!12!WeaponForMonster!Scepter
+⬜_!WeaponType!Bowie Knife!Damage!9!Durability!11_!MonsterType!Water Elemental!Health!15!WeaponForMonster!Morning Star
+⬜_!WeaponType!Club!Damage!4!Durability!26_!WeaponType!Tomahawk!Damage!9!Durability!19_!EffectType!Healing!Power!9!Uses!5_!MonsterType!Fairy!Health!17!WeaponForMonster!Katana_!MonsterType!Mermaid!Health!12!WeaponForMonster!Chakram_!MonsterType!Skeleton!Health!10!WeaponForMonster!Broadsword
 ⬜
+⬜_!WeaponType!Tomahawk!Damage!9!Durability!11
 🦆
 🦆
-⬜_!EffectType!Repairing!Power!6!Uses!8_!EffectType!Healing!Power!4!Uses!1_!MonsterType!Goblin!Health!19!WeaponForMonster!Claymore_!MonsterType!Ent!Health!10!WeaponForMonster!Double-headed Axe_!MonsterType!Cyclops!Health!13!WeaponForMonster!Dagger
-⬜_!WeaponType!Pike!Damage!5!Durability!24_!EffectType!Repairing!Power!8!Uses!5_!EffectType!Healing!Power!6!Uses!3
-⬜_!EffectType!Repairing!Power!6!Uses!8_!EffectType!Healing!Power!4!Uses!1_!MonsterType!Goblin!Health!19!WeaponForMonster!Claymore_!MonsterType!Ent!Health!10!WeaponForMonster!Double-headed Axe_!MonsterType!Cyclops!Health!13!WeaponForMonster!Dagger
-⬜_!WeaponType!Nunchaku!Damage!3!Durability!24_!WeaponType!Warhammer!Damage!4!Durability!29
-⬜_!MonsterType!Banshee!Health!12!WeaponForMonster!Hand-to-Hand_!MonsterType!Wraith!Health!19!WeaponForMonster!Falchion
-⬜_!WeaponType!Flail!Damage!6!Durability!26_!EffectType!Healing!Power!3!Uses!10_!EffectType!Healing!Power!7!Uses!7_!MonsterType!Succubus!Health!14!WeaponForMonster!Morning Star
-⬜_!MonsterType!Nymph!Health!12!WeaponForMonster!Club_!MonsterType!Elf!Health!14!WeaponForMonster!Sickle
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-🦆
-⬜_!WeaponType!Trident!Damage!10!Durability!21
-⬜_!EffectType!Healing!Power!6!Uses!10_!EffectType!Repairing!Power!7!Uses!10_!MonsterType!Water Elemental!Health!17!WeaponForMonster!Warhammer
-⬜_!WeaponType!Scepter!Damage!9!Durability!16_!WeaponType!Sickle!Damage!7!Durability!26_!MonsterType!Water Elemental!Health!12!WeaponForMonster!Warhammer_!MonsterType!Ent!Health!11!WeaponForMonster!Broadsword_!MonsterType!Shadow!Health!16!WeaponForMonster!Spear
-⬜_!WeaponType!Cestus!Damage!4!Durability!30_!EffectType!Healing!Power!7!Uses!10_!MonsterType!Unicorn!Health!12!WeaponForMonster!Falchion
-⬜_!MonsterType!Ghost!Health!17!WeaponForMonster!Hand Axe_!MonsterType!Air Elemental!Health!14!WeaponForMonster!Sickle
-🦆
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-🦆
-⬜_!WeaponType!Bowie Knife!Damage!7!Durability!10_!WeaponType!Battle Axe!Damage!3!Durability!26
-⬜_!MonsterType!Griffin!Health!20!WeaponForMonster!Claymore_!MonsterType!Nymph!Health!15!WeaponForMonster!Hand Axe_!MonsterType!Lich!Health!12!WeaponForMonster!Claymore
-⬜_!WeaponType!Halberd!Damage!1!Durability!29_!MonsterType!Satyr!Health!18!WeaponForMonster!Short sword_!MonsterType!Troll!Health!15!WeaponForMonster!Nunchaku_!MonsterType!Dryad!Health!14!WeaponForMonster!Glaive
-⬜_!WeaponType!Polearms!Damage!4!Durability!27_!EffectType!Repairing!Power!4!Uses!4_!EffectType!Repairing!Power!8!Uses!9_!MonsterType!Water Elemental!Health!20!WeaponForMonster!Glaive
-🦆
-⬜_!EffectType!Healing!Power!2!Uses!10
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-🦆
-⬜_!EffectType!Repairing!Power!6!Uses!10_!EffectType!Healing!Power!5!Uses!8_!MonsterType!Dwarf!Health!10!WeaponForMonster!Brass Knuckles
-⬜_!EffectType!Repairing!Power!1!Uses!4
-⬜_!WeaponType!War Axe!Damage!2!Durability!20_!WeaponType!Tomahawk!Damage!8!Durability!24
-⬜_!MonsterType!Pegasus!Health!19!WeaponForMonster!Cestus
-⬜_!MonsterType!Earth Elemental!Health!15!WeaponForMonster!Flail
-🦆
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-🦆
-⬜_!EffectType!Repairing!Power!6!Uses!8_!EffectType!Healing!Power!4!Uses!1_!MonsterType!Goblin!Health!19!WeaponForMonster!Claymore_!MonsterType!Ent!Health!10!WeaponForMonster!Double-headed Axe_!MonsterType!Cyclops!Health!13!WeaponForMonster!Dagger
-⬜_!WeaponType!Flail!Damage!3!Durability!20_!MonsterType!Succubus!Health!16!WeaponForMonster!Morning Star_!MonsterType!Pegasus!Health!19!WeaponForMonster!Polearms_!MonsterType!Vampire!Health!18!WeaponForMonster!Hand-to-Hand
-⬜_!WeaponType!Polearms!Damage!6!Durability!26_!EffectType!Repairing!Power!1!Uses!9_!EffectType!Healing!Power!4!Uses!1_!MonsterType!Earth Elemental!Health!15!WeaponForMonster!Quarterstaff_!MonsterType!Elf!Health!13!WeaponForMonster!Rapier
-⬜_!WeaponType!Falchion!Damage!1!Durability!23_!WeaponType!War Axe!Damage!6!Durability!30_!EffectType!Healing!Power!9!Uses!2_!MonsterType!Demon!Health!11!WeaponForMonster!Scimitar_!MonsterType!Fire Elemental!Health!16!WeaponForMonster!Cestus_!MonsterType!Minotaur!Health!14!WeaponForMonster!Glaive
-⬜_!WeaponType!Throwing Knife!Damage!9!Durability!24_!WeaponType!Flail!Damage!8!Durability!11_!EffectType!Repairing!Power!5!Uses!9_!MonsterType!Ghost!Health!13!WeaponForMonster!Stiletto_!MonsterType!Mermaid!Health!11!WeaponForMonster!Sai_!MonsterType!Sphinx!Health!16!WeaponForMonster!Bowie Knife
-⬜_!EffectType!Healing!Power!6!Uses!4_!EffectType!Repairing!Power!5!Uses!9
-⬜_!EffectType!Healing!Power!3!Uses!2_!MonsterType!Nymph!Health!12!WeaponForMonster!Chakram_!MonsterType!Dwarf!Health!12!WeaponForMonster!Dirk_!MonsterType!Elf!Health!13!WeaponForMonster!Tomahawk
-⬜_!MonsterType!Chimera!Health!15!WeaponForMonster!Cestus_!MonsterType!Orc!Health!13!WeaponForMonster!Throwing Knife_!MonsterType!Ghost!Health!10!WeaponForMonster!Dirk
-🦆
-⬜_!EffectType!Repairing!Power!6!Uses!8_!EffectType!Healing!Power!4!Uses!1_!MonsterType!Goblin!Health!19!WeaponForMonster!Claymore_!MonsterType!Ent!Health!10!WeaponForMonster!Double-headed Axe_!MonsterType!Cyclops!Health!13!WeaponForMonster!Dagger
-⬜_!MonsterType!Ice Elemental!Health!10!WeaponForMonster!Pike
-⬜_!EffectType!Repairing!Power!6!Uses!8_!EffectType!Healing!Power!4!Uses!1_!MonsterType!Goblin!Health!19!WeaponForMonster!Claymore_!MonsterType!Ent!Health!10!WeaponForMonster!Double-headed Axe_!MonsterType!Cyclops!Health!13!WeaponForMonster!Dagger
-⬜_!WeaponType!Falchion!Damage!6!Durability!11_!MonsterType!Hellhound!Health!19!WeaponForMonster!Broadsword_!MonsterType!Kraken!Health!11!WeaponForMonster!Warhammer
-⬜_!WeaponType!Whip!Damage!3!Durability!11_!MonsterType!Shadow!Health!20!WeaponForMonster!Flail
+⬜_!EffectType!Repairing!Power!10!Uses!10_!MonsterType!Minotaur!Health!14!WeaponForMonster!Mace
+⬜_!WeaponType!Hand-to-Hand!Damage!8!Durability!18_!EffectType!Repairing!Power!4!Uses!6_!EffectType!Repairing!Power!7!Uses!4_!MonsterType!Hellhound!Health!10!WeaponForMonster!Quarterstaff_!MonsterType!Goblin!Health!10!WeaponForMonster!Whip_!MonsterType!Ent!Health!12!WeaponForMonster!Polearms
+⬜_!WeaponType!Kunai!Damage!3!Durability!10_!MonsterType!Kraken!Health!13!WeaponForMonster!Dirk
 ⬜
-⬜_!MonsterType!Dwarf!Health!18!WeaponForMonster!Warhammer_!MonsterType!Cyclops!Health!11!WeaponForMonster!Katana_!MonsterType!Nightmare!Health!20!WeaponForMonster!Halberd
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
-⬜_!WeaponType!Mace!Damage!5!Durability!16_!WeaponType!Broadsword!Damage!6!Durability!20_!MonsterType!Hydra!Health!20!WeaponForMonster!Short sword_!MonsterType!Chimera!Health!14!WeaponForMonster!Scepter
+⬜
+⬜_!WeaponType!Longsword!Damage!2!Durability!21_!EffectType!Healing!Power!8!Uses!8_!MonsterType!Ent!Health!13!WeaponForMonster!Warhammer
+⬜_!EffectType!Healing!Power!1!Uses!9_!MonsterType!Vampire!Health!16!WeaponForMonster!Halberd_!MonsterType!Cyclops!Health!12!WeaponForMonster!Falchion
+⬜_!WeaponType!Tomahawk!Damage!5!Durability!21_!WeaponType!Throwing Knife!Damage!3!Durability!23_!WeaponType!Claymore!Damage!4!Durability!20_!MonsterType!Troll!Health!19!WeaponForMonster!Dirk_!MonsterType!Hydra!Health!18!WeaponForMonster!Falchion
+🦆
 🦆
 🦆
 🦆

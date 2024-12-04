@@ -327,19 +327,20 @@ public class DungeonGen {
     int userChoice = 0;
     while (userChoice != 12) {
       System.out.println("\nPlease type in a room interaction option from the list below:\n" + 
-                           "0) Examine monster [index]\n" + 
-                           "1) Examine weapon [index]\n" +
-                           "2) Examine potion [index]\n" +
-                           "3) Take weapon [index]\n" + 
-                           "4) Take potion [index]\n" + 
-                           "5) Weapon inventory [index]\n" +
-                           "6) Potion inventory [index]\n" + 
-                           "7) Inventory\n" + 
-                           "8) Use from weapon inventory [index]\n" +
+                           "0) Examine monster in room\n" + 
+                           "1) Examine weapon in room\n" +
+                           "2) Examine potion in room\n" +
+                           "3) Take weapon in room\n" + 
+                           "4) Take potion in room\n" + 
+                           "5) Weapon inventory\n" +
+                           "6) Potion inventory\n" + 
+                           "7) Entire Inventory\n" + 
+                           "8) Equip from weapon inventory\n" +
                            "9) Use from potion inventory [index]\n" + 
-                           "10) Attack [index]\n" +
+                           "10) Attack monster\n" +
                            "11) See currently equipped weapon\n" + 
-                           "12) Return");
+                           "12) Return\n" +
+                           "______________________________________");
       userChoice = scnr.nextInt();
 
       if (userChoice == 0) {
@@ -383,22 +384,23 @@ public class DungeonGen {
       }
       else if (userChoice == 7) {
         System.out.println("\nPrinting current inventory...");
-        ArrayList<Weapons> currentRoomWeapons = room.getWeaponsInRoom();
-        ArrayList<Potions> currentRoomPotions = room.getPotionsInRoom();
 
-        for (int i = 0; i < currentRoomWeapons.size(); i++) {
-          System.out.print(currentRoomWeapons.get(i).toStringWeaponType() + " " + i);
+        ArrayList<Weapons> currentPlayerWeapons = player.getWeaponsInvetory();
+        ArrayList<Potions> currentPlayerPotions = player.getPotionsInvetory();
+
+        for (int i = 0; i < currentPlayerWeapons.size(); i++) {
+          System.out.print(currentPlayerWeapons.get(i).toStringWeaponType() + " " + i);
         }
         System.out.println();
 
-        for (int i = 0; i < currentRoomPotions.size(); i++) {
-          System.out.print(currentRoomPotions.get(i).toStringPotionType() + " " + i);
+        for (int i = 0; i < currentPlayerPotions.size(); i++) {
+          System.out.print(currentPlayerPotions.get(i).toStringPotionType() + " " + i);
         }
         System.out.println();
 
       }
       else if (userChoice == 8) {
-        System.out.println("\nWhich weapon inventory item do you want to use? (Enter the index): ");
+        System.out.println("\nWhich weapon inventory item do you want to equip? (Enter the index): ");
         userChoice = scnr.nextInt();
         player.setEquippedWeapon(player.getWeaponsInvetory().get(userChoice));
         System.out.println(player.getEquippedWeapon().toStringWeaponType());
@@ -475,34 +477,34 @@ public class DungeonGen {
     }
   }
 
-  public static void escapeDungeon(Player player, Scanner scnr, boolean continueGame) {
+  public static boolean escapeDungeon(Player player, Scanner scnr, boolean continueGame) {
     char userConfirmation = ' ';
     int playerRowPosition = player.getRowPosition();
     int playerColumnPosition = player.getColumnPosition();
     int playerStartingRowPosition = player.getStartingRowPosition();
     int playerStartingColumnPosition = player.getStartingColumnPosition();
 
-    while (userConfirmation != 'n' ||userConfirmation != 'y' || userConfirmation != 'N' ||userConfirmation != 'Y') {
-      System.out.println("In order to win, you must return to your starting point then type escape.\nIf you don't then you automatically lose.");
+    System.out.println("In order to win, you must return to your starting point then type escape.\nIf you don't then you automatically lose.");
+    
+    System.out.println("Are you sure you want to escape and end the game (y/n)?");
+    userConfirmation = scnr.next().charAt(0);
+    if (userConfirmation == 'y' || userConfirmation == 'Y') {
+      System.out.println("\nExiting game...");
       
-      System.out.println("Are you sure you want to escape and end the game (y/n)?");
-      userConfirmation = scnr.next().charAt(0);
-      if (userConfirmation == 'y' || userConfirmation == 'Y') {
-        System.out.println("\nExiting game...");
-        continueGame = false;
-
-        // If the player escaped at the starting point...
-        if (playerRowPosition == playerStartingRowPosition && playerColumnPosition == playerStartingColumnPosition) {
-          System.out.println("You successfully escaped!");
-          System.out.println("Number of monsters defeated: " + player.getNumMonstersDefeated());
-        }
-        else {
-          System.out.println("You lost...");
-        }
+      // If the player escaped at the starting point...
+      if (playerRowPosition == playerStartingRowPosition && playerColumnPosition == playerStartingColumnPosition) {
+        System.out.println("You successfully escaped!");
+        System.out.println("Number of monsters defeated: " + player.getNumMonstersDefeated());
       }
-      else if (userConfirmation == 'n' || userConfirmation == 'N') {
-        System.out.println("\nReturning to game...");
+      else {
+        System.out.println("You lost...");
+        System.out.println("Number of monsters defeated: " + player.getNumMonstersDefeated());
       }
+      return false;
+    }
+    else {
+      System.out.println("\nReturning to game...");
+      return true;
     }
   }
 
@@ -527,7 +529,8 @@ public class DungeonGen {
                         "- e to move east\n" +
                         "- w to move west\n" + 
                         "- i to interact with room\n" +
-                        "- q to escape");
+                        "- q to escape\n" + 
+                        "______________________________________");
       userChoice = scnr.next().charAt(0);
       int playerRowPosition = player.getRowPosition();
       int playerColumnPosition = player.getColumnPosition();
@@ -588,7 +591,7 @@ public class DungeonGen {
         interactWithRoom(dungeon.getRoom(playerRowPosition, playerColumnPosition), player, scnr);
       }
       else if (userChoice == 'q'  || userChoice == 'Q' ) {
-        escapeDungeon(player, scnr, continueGame);
+        continueGame = escapeDungeon(player, scnr, continueGame);
       }
       else {
         System.out.println("Please choose a valid option!");
@@ -604,7 +607,7 @@ public class DungeonGen {
 
     while (userChoice != 2) {
       // Decision from user
-      System.out.print("Enter 0 to generate, 1 to load, or 2 to exit: ");
+      System.out.print("\nEnter 0 to generate, 1 to load, or 2 to exit: ");
       userChoice = scnr.nextInt();
       System.out.println();
 

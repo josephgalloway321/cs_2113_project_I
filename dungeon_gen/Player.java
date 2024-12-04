@@ -20,7 +20,7 @@ public class Player {
 
     rowPosition = 0;
     columnPosition = 0;
-    health = 100;
+    health = 1000;
 
     Weapons weapon = new Weapons();  // Give the new player a random weapon 
     weaponsInventory.add(weapon);
