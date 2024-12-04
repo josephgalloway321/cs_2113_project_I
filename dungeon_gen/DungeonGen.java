@@ -323,78 +323,7 @@ public class DungeonGen {
     System.out.println();
   }
 
-  public static void movePlayerAroundDungeon(DungeonGen dungeon, Player player, Scanner scnr) {
-    int playerRowPosition = player.getRowPosition();
-    int playerColumnPosition = player.getColumnPosition();
-    char userChoice = ' ';
-
-    while (userChoice != 'q') {
-      System.out.println("\nChoose a direction (n, s, e, w) or q to quit navigation:\n");
-      userChoice = scnr.next().charAt(0);
-
-      if (userChoice == 'n' || userChoice == 'N') {
-        if (player.getRowPosition() == 0) {
-          System.out.println("Move failed");
-        }
-        else if (dungeon.getRoom(playerRowPosition - 1, playerColumnPosition).toString().equals("\u2B1C")) {
-          player.setPosition(playerRowPosition - 1, playerColumnPosition);
-          printDungeonWithPlayer(dungeon, player);
-          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
-        }
-        else {
-          System.out.println("Move failed");
-        }
-      }
-      else if (userChoice == 's' || userChoice == 'S') {
-        if (player.getRowPosition() == 9) {
-          System.out.println("Move failed");
-        }
-        else if (dungeon.getRoom(playerRowPosition + 1, playerColumnPosition).toString().equals("\u2B1C")) {
-          player.setPosition(playerRowPosition + 1, playerColumnPosition);
-          printDungeonWithPlayer(dungeon, player);
-          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
-        }
-        else {
-          System.out.println("Move failed");
-        }
-      }
-      else if (userChoice == 'e' || userChoice == 'E') {
-        if (player.getColumnPosition() == 9) {
-          System.out.println("Move failed");
-        }
-        else if (dungeon.getRoom(playerRowPosition, playerColumnPosition + 1).toString().equals("\u2B1C")) {
-          player.setPosition(playerRowPosition, playerColumnPosition + 1);
-          printDungeonWithPlayer(dungeon, player);
-          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
-        }
-        else {
-          System.out.println("Move failed");
-        }
-      }
-      else if (userChoice == 'w' || userChoice == 'W') {
-        if (player.getColumnPosition() == 0) {
-          System.out.println("Move failed");
-        }
-        else if (dungeon.getRoom(playerRowPosition, playerColumnPosition - 1).toString().equals("\u2B1C")) {
-          player.setPosition(playerRowPosition, playerColumnPosition - 1);
-          printDungeonWithPlayer(dungeon, player);
-          monstersInRoomAttackPlayer(dungeon.getRoom(playerRowPosition, playerColumnPosition).getMonstersInRoom(), player);
-        }
-        else {
-          System.out.println("Move failed");
-        }
-      }
-      else if (userChoice == 'q' || userChoice == 'Q') {
-        System.out.println("Ending game...\n");
-      }
-      else {
-        System.out.println("Please choose a valid option!");
-      }
-    }
-  }
-
   public static void interactWithRoom(Room room, Player player, Scanner scnr) {
-    // TODO: Assumes user will input a valid index
     int userChoice = 0;
     while (userChoice != 12) {
       System.out.println("\nPlease type in a room interaction option from the list below:\n" + 
@@ -579,7 +508,7 @@ public class DungeonGen {
 
   public static void beginGame(DungeonGen dungeon, Scanner scnr) {
     Player player = new Player();
-    String userChoice = "";
+    char userChoice = ' ';
     boolean continueGame = true;
 
     System.out.println("Beginning game...\n");
@@ -593,20 +522,72 @@ public class DungeonGen {
       }
 
       System.out.println("\nEnter one of the following:\n" +
-                        "- move\n" + 
-                        "- interact\n" +
-                        "- escape");
-      userChoice = scnr.next();
+                        "- n to move north\n" +
+                        "- s to move south\n" +
+                        "- e to move east\n" +
+                        "- w to move west\n" + 
+                        "- i to interact with room\n" +
+                        "- q to escape");
+      userChoice = scnr.next().charAt(0);
       int playerRowPosition = player.getRowPosition();
       int playerColumnPosition = player.getColumnPosition();
-      
-      if (userChoice.equals("move") || userChoice.equals("Move")) {
-        movePlayerAroundDungeon(dungeon, player, scnr);
+    
+      if (userChoice == 'n' || userChoice == 'N') {
+        if (player.getRowPosition() == 0) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition - 1, playerColumnPosition).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition - 1, playerColumnPosition);
+          printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(player.getRowPosition(), player.getColumnPosition()).getMonstersInRoom(), player);
+        }
+        else {
+          System.out.println("Move failed");
+        }
       }
-      else if (userChoice.equals("interact") || userChoice.equals("Interact")) {
+      else if (userChoice == 's' || userChoice == 'S') {
+        if (player.getRowPosition() == 9) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition + 1, playerColumnPosition).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition + 1, playerColumnPosition);
+          printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(player.getRowPosition(), player.getColumnPosition()).getMonstersInRoom(), player);
+        }
+        else {
+          System.out.println("Move failed");
+        }
+      }
+      else if (userChoice == 'e' || userChoice == 'E') {
+        if (player.getColumnPosition() == 9) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition, playerColumnPosition + 1).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition, playerColumnPosition + 1);
+          printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(player.getRowPosition(), player.getColumnPosition()).getMonstersInRoom(), player);
+        }
+        else {
+          System.out.println("Move failed");
+        }
+      }
+      else if (userChoice == 'w' || userChoice == 'W') {
+        if (player.getColumnPosition() == 0) {
+          System.out.println("Move failed");
+        }
+        else if (dungeon.getRoom(playerRowPosition, playerColumnPosition - 1).toString().equals("\u2B1C")) {
+          player.setPosition(playerRowPosition, playerColumnPosition - 1);
+          printDungeonWithPlayer(dungeon, player);
+          monstersInRoomAttackPlayer(dungeon.getRoom(player.getRowPosition(), player.getColumnPosition()).getMonstersInRoom(), player);
+        }
+        else {
+          System.out.println("Move failed");
+        }
+      }
+      else if (userChoice == 'i' || userChoice == 'I' ) {
         interactWithRoom(dungeon.getRoom(playerRowPosition, playerColumnPosition), player, scnr);
       }
-      else if (userChoice.equals("escape") || userChoice.equals("Escape")) {
+      else if (userChoice == 'q'  || userChoice == 'Q' ) {
         escapeDungeon(player, scnr, continueGame);
       }
       else {
